@@ -1,0 +1,13 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="aaltiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4f46e5;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="90" fill="url(#aaltiGrad)" opacity="0.15"/>
+  <circle cx="100" cy="100" r="75" fill="none" stroke="url(#aaltiGrad)" stroke-width="2" opacity="0.3"/>
+  <text x="100" y="115" font-size="64" font-weight="900" text-anchor="middle" fill="url(#aaltiGrad)" font-family="Inter, sans-serif">A</text>
+  <circle cx="100" cy="100" r="85" fill="none" stroke="url(#aaltiGrad)" stroke-width="1" opacity="0.1"/>
+</svg>

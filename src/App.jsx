@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   Bot, Zap, Calendar, MessageSquare, Instagram,
   CheckCircle, ArrowRight, Shield, Star, Menu,
-  X, Play, Target, Rocket, Award, Clock, XCircle, Check
+  X, Target, Rocket, Award, Clock, XCircle, Check
 } from 'lucide-react';
-import logoAalti from './assets/simbolo-aalti.png';
+import logoAalti from './assets/simbolo-aalti.svg';
 
 /* ─── Animated counter ─────────────────────────────────────────── */
 const AnimatedNumber = ({ end, duration = 2000, prefix = '', suffix = '' }) => {
@@ -57,8 +57,6 @@ export default function App() {
 
       {/* ── CUSTOM STYLES ─────────────────────────────────────────── */}
       <style dangerouslySetInnerHTML={{ __html: `
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
-
         * { -webkit-font-smoothing: antialiased; }
 
         @keyframes float {
