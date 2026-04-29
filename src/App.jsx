@@ -9,6 +9,7 @@ import ClientLogos from './components/ClientLogos';
 import ContactPage from './pages/ContactPage';
 import LegalNotice from './pages/LegalNotice';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import NotFound from './pages/NotFound';
 import CookieBanner from './components/CookieBanner';
 import { useLanguage } from './LanguageContext';
 import { translations } from './i18n';
@@ -729,6 +730,7 @@ export default function App() {
   const [showContactPage, setShowContactPage] = useState(false);
   const [showLegalNotice, setShowLegalNotice] = useState(false);
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
+  const [showNotFound, setShowNotFound] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   if (showContactPage) {
@@ -741,6 +743,10 @@ export default function App() {
 
   if (showPrivacyPolicy) {
     return <PrivacyPolicy onBack={() => setShowPrivacyPolicy(false)} />;
+  }
+
+  if (showNotFound) {
+    return <NotFound onNavigateHome={() => setShowNotFound(false)} />;
   }
 
   return (
