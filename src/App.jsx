@@ -856,7 +856,7 @@ export default function App() {
       <ClientLogos language={language} />
 
       {/* ─── AI PLATFORMS PERSPECTIVE MARQUEE ─── */}
-      <section className="relative py-40 overflow-hidden bg-gradient-to-b from-slate-950 via-indigo-950/30 to-slate-950">
+      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-slate-950 via-indigo-950/30 to-slate-950">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div

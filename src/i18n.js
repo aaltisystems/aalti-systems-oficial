@@ -182,11 +182,11 @@ export const translations = {
       compatible: "Conéctate Fácilmente",
       compatibleDesc: "Integración con cualquier herramienta",
       availability: "Disponibilidad 24/7",
-      availabilityDesc: "Operación continua sin excepciones",
+      availabilityDesc: "Operación continua, sin excepciones",
       latency: "Respuestas Instantáneas",
       latencyDesc: "Decisiones en milisegundos",
-      security: "Seguridad Enterprise",
-      securityDesc: "Encriptación end-to-end + Cumplimiento RGPD"
+      security: "Tu Seguridad Garantizada",
+      securityDesc: "Encriptación de nivel enterprise + cumplimiento normativo"
     },
 
     capabilitiesSection: {
@@ -461,11 +461,11 @@ export const translations = {
       compatible: "Easy Integration",
       compatibleDesc: "Connect with any tool",
       availability: "24/7 Availability",
-      availabilityDesc: "Continuous operation without interruptions",
+      availabilityDesc: "Continuous operation, no exceptions",
       latency: "Instant Responses",
       latencyDesc: "Decisions in milliseconds",
-      security: "Enterprise Security",
-      securityDesc: "End-to-end encryption + GDPR compliance"
+      security: "Your Security Guaranteed",
+      securityDesc: "Enterprise-grade encryption + regulatory compliance"
     },
 
     capabilitiesSection: {
