@@ -48,7 +48,7 @@ export const translations = {
 
     // Testimonials
     testimonials: {
-      title: "Lo que Dicen Nuestros Clientes",
+      title: "Cómo 50+ Empresas Multiplicaron Ingresos",
       subtitle: "Desde startups hasta empresas de Fortune 500, han transformado sus operaciones con AALTI SYSTEMS"
     },
 
@@ -65,7 +65,7 @@ export const translations = {
 
     // Marquee Section
     marquee: {
-      title: "Integración con Líderes de Inteligencia Artificial",
+      title: "Conecta con ChatGPT, Claude & GPT-4",
       compatible: "100% Compatible",
       compatibleDesc: "APIs modernas integradas",
       availability: "Disponibilidad 24/7",
@@ -130,7 +130,7 @@ export const translations = {
 
     // Contact Form
     contactForm: {
-      title: "Consulta Gratuita",
+      title: "Auditoría Gratuita",
       name: "Nombre Completo",
       namePlaceholder: "Tu nombre",
       email: "Email",
