@@ -170,8 +170,10 @@ const InteractiveHeroBackground = ({ isDarkMode = true }) => {
   const containerRef = useRef(null);
   const sceneRef = useRef(null);
   const animationRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, amount: 0.1 });
+
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!isInView || !containerRef.current) return;
     const count = window.innerWidth > 1024 ? 200 : (window.innerWidth > 640 ? 150 : 100);
     const sceneManager = new SceneManager(containerRef.current, isDarkMode);
     sceneRef.current = sceneManager;
@@ -194,14 +196,15 @@ const InteractiveHeroBackground = ({ isDarkMode = true }) => {
       renderer.dispose();
       sceneManager.dispose();
     };
-  }, [isDarkMode]);
+  }, [isDarkMode, isInView]);
   return <canvas ref={containerRef} className="absolute inset-0 w-full h-full" style={{ display: 'block' }} />;
 };
 
 // ─── Tech Code Particles (Código flotante) ─────────────────────
 const TechParticles = () => {
   const codeSymbols = ['<', '>', '/', '{', '}', '(', ')', '0', '1', '[', ']', '=', '&', '|'];
-  const particles = Array.from({ length: 30 }).map((_, i) => ({
+  const particleCount = window.innerWidth > 1024 ? 30 : 15;
+  const particles = Array.from({ length: particleCount }).map((_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
