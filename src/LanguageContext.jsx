@@ -4,7 +4,6 @@ const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState('es');
-  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
     try {
@@ -16,7 +15,6 @@ export const LanguageProvider = ({ children }) => {
       // Private browsing mode or localStorage not available - use default language
       console.debug('localStorage unavailable, using default language');
     }
-    setIsHydrated(true);
   }, []);
 
   const handleSetLanguage = (lang) => {
@@ -33,10 +31,6 @@ export const LanguageProvider = ({ children }) => {
     const newLang = language === 'es' ? 'en' : 'es';
     handleSetLanguage(newLang);
   };
-
-  if (!isHydrated) {
-    return <>{children}</>;
-  }
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, toggleLanguage }}>
