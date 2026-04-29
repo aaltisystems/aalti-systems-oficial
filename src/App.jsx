@@ -820,7 +820,7 @@ export default function App() {
           </motion.h1>
 
           <motion.p
-            className="text-slate-300 text-lg md:text-xl font-dm-sans mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-slate-200 text-lg md:text-xl font-dm-sans mb-12 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -829,7 +829,7 @@ export default function App() {
           </motion.p>
 
           <motion.div
-            className="flex justify-center mb-16"
+            className="flex justify-center gap-4 mb-16 flex-col sm:flex-row"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -856,7 +856,7 @@ export default function App() {
       <ClientLogos language={language} />
 
       {/* ─── AI PLATFORMS PERSPECTIVE MARQUEE ─── */}
-      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-slate-950 via-indigo-950/30 to-slate-950">
+      <section className="relative py-16 overflow-hidden bg-gradient-to-b from-slate-950 via-indigo-950/30 to-slate-950">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
@@ -1017,7 +1017,7 @@ export default function App() {
       </section>
 
       {/* ─── CUBE 3D SECTION ─── */}
-      <section className="relative max-w-7xl mx-auto px-4 py-24">
+      <section className="relative max-w-7xl mx-auto px-4 py-16">
         <motion.h2
           className="text-4xl md:text-5xl font-space-grotesk font-bold text-center mb-16"
           initial={{ opacity: 0 }}
@@ -1039,7 +1039,7 @@ export default function App() {
       </section>
 
       {/* ─── BENTO GRID ─── */}
-      <section className="relative max-w-7xl mx-auto px-4 py-24">
+      <section className="relative max-w-7xl mx-auto px-4 py-16">
         <motion.h2
           className="text-4xl md:text-5xl font-space-grotesk font-bold text-center mb-16"
           initial={{ opacity: 0 }}
@@ -1094,7 +1094,7 @@ export default function App() {
                 {t.automation.title}
               </motion.h2>
               <motion.p
-                className="text-slate-400 text-lg md:text-xl font-dm-sans max-w-3xl mx-auto"
+                className="text-slate-300 text-lg md:text-xl font-dm-sans max-w-3xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -1262,7 +1262,7 @@ export default function App() {
       </section>
 
       {/* ─── TESTIMONIALS - STAGGER CAROUSEL ─── */}
-      <section className="relative py-24">
+      <section className="relative py-16">
         <motion.div
           className="max-w-7xl mx-auto px-4 mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -1279,10 +1279,24 @@ export default function App() {
         <Suspense fallback={<LoadingFallback />}>
           <StaggerTestimonials />
         </Suspense>
+
+        <motion.div
+          className="mt-16 flex justify-center"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <button onClick={() => setShowContactPage(true)}>
+            <ShinyButton variant="secondary">
+              {t.heroMain.ctaSecondary}
+              <ArrowRight className="w-4 h-4" />
+            </ShinyButton>
+          </button>
+        </motion.div>
       </section>
 
       {/* ─── CTA FINAL ─── */}
-      <section className="relative max-w-4xl mx-auto px-4 py-24 text-center">
+      <section className="relative max-w-4xl mx-auto px-4 py-16 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1291,7 +1305,7 @@ export default function App() {
           <h2 className="text-4xl md:text-5xl font-space-grotesk font-bold mb-6 text-gradient">
             {t.ctaFinal.title}
           </h2>
-          <p className="text-slate-300 text-lg font-dm-sans mb-8">
+          <p className="text-slate-200 text-lg font-dm-sans mb-8">
             {t.ctaFinal.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

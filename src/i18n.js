@@ -123,9 +123,9 @@ export const translations = {
 
     // CTA Final
     ctaFinal: {
-      title: "¿Listo para Transformar tu Negocio?",
+      title: "Tu Competencia Ya Está Usando IA. ¿Qué Esperas?",
       description: "No es magia, es inteligencia artificial trabajando para ti 24/7. Agendar es gratis, transformar es inevitable.",
-      cta: "Comenzar Ahora"
+      cta: "Auditoría Gratuita Ahora"
     },
 
     // Contact Form
@@ -162,9 +162,9 @@ export const translations = {
     // Additional sections for full app translation
     heroMain: {
       label: "AALTI SYSTEMS",
-      headline: "Multiplica tus Ingresos y Recupera tu Tiempo con Inteligencia Artificial",
+      headline: "Automatización B2B con IA | Multiplicar Ventas 24/7",
       description: "Automatizamos tus procesos más tediosos para que tu negocio opere a la velocidad de las grandes tecnológicas. Deja de perder tiempo en tareas repetitivas.",
-      cta: "Agendar Consultoría",
+      cta: "Auditoría de IA Gratis",
       ctaSecondary: "Ver Casos de Éxito"
     },
 
@@ -327,7 +327,7 @@ export const translations = {
 
     // Testimonials
     testimonials: {
-      title: "What Our Clients Say",
+      title: "How 50+ Companies Multiplied Revenue",
       subtitle: "From startups to Fortune 500 companies, they've transformed their operations with AALTI SYSTEMS"
     },
 
@@ -344,7 +344,7 @@ export const translations = {
 
     // Marquee Section
     marquee: {
-      title: "Integration with AI Leaders",
+      title: "Connect with ChatGPT, Claude & GPT-4",
       compatible: "100% Compatible",
       compatibleDesc: "Modern APIs integrated",
       availability: "24/7 Availability",
@@ -402,14 +402,14 @@ export const translations = {
 
     // CTA Final
     ctaFinal: {
-      title: "Ready to Transform Your Business?",
+      title: "Your Competition Is Already Using AI. What Are You Waiting For?",
       description: "It's not magic, it's artificial intelligence working for you 24/7. Scheduling is free, transforming is inevitable.",
-      cta: "Get Started Now"
+      cta: "Free Audit Now"
     },
 
     // Contact Form
     contactForm: {
-      title: "Free Consultation",
+      title: "Free Audit",
       name: "Full Name",
       namePlaceholder: "Your name",
       email: "Email",
@@ -441,9 +441,9 @@ export const translations = {
     // Additional sections for full app translation
     heroMain: {
       label: "AALTI SYSTEMS",
-      headline: "Multiply Your Income and Reclaim Your Time with Artificial Intelligence",
+      headline: "B2B Automation with AI | Multiply Sales 24/7",
       description: "We automate your most tedious processes so your business operates at the speed of major tech companies. Stop wasting time on repetitive tasks.",
-      cta: "Schedule a Consultation",
+      cta: "Free AI Audit",
       ctaSecondary: "See Success Stories"
     },
 
