@@ -658,33 +658,33 @@ const Header = ({ isDarkMode, setIsDarkMode, language, toggleLanguage }) => {
         </div>
 
         <div className="hidden md:flex items-center gap-2">
-          <a href="tel:+34647119040" className="p-2 hover:bg-indigo-500/20 rounded-full transition" title="Teléfono">
-            <Phone className="w-5 h-5 text-indigo-400" />
+          <a href="tel:+34647119040" className="p-2 hover:bg-white/10 rounded-full transition-colors duration-200" title="Teléfono">
+            <Phone className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" />
           </a>
-          <a href="mailto:aaltistudio@gmail.com" className="p-2 hover:bg-indigo-500/20 rounded-full transition" title="Email">
-            <Mail className="w-5 h-5 text-indigo-400" />
+          <a href="mailto:aaltistudio@gmail.com" className="p-2 hover:bg-white/10 rounded-full transition-colors duration-200" title="Email">
+            <Mail className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" />
           </a>
-          <a href="https://wa.me/34647119040" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-green-500/20 rounded-full transition" title="WhatsApp">
-            <Phone className="w-5 h-5 text-green-400" />
+          <a href="https://wa.me/34647119040" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-white/10 rounded-full transition-colors duration-200" title="WhatsApp">
+            <Phone className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" />
           </a>
-          <a href="https://instagram.com/aaltisystems" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-pink-500/20 rounded-full transition" title="Instagram">
-            <Instagram className="w-5 h-5 text-pink-400" />
+          <a href="https://instagram.com/aaltisystems" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-white/10 rounded-full transition-colors duration-200" title="Instagram">
+            <Instagram className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" />
           </a>
           <button
             onClick={() => setIsDarkMode(!isDarkMode)}
-            className="p-2 hover:bg-indigo-500/20 rounded-full transition"
+            className="p-2 hover:bg-white/10 rounded-full transition-colors duration-200"
             title={isDarkMode ? 'Light Mode' : 'Dark Mode'}
             aria-label={isDarkMode ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
           >
-            {isDarkMode ? <Sun className="w-5 h-5 text-yellow-400" /> : <Moon className="w-5 h-5 text-slate-400" />}
+            {isDarkMode ? <Sun className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" /> : <Moon className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" />}
           </button>
           <button
             onClick={toggleLanguage}
-            className="p-2 hover:bg-purple-500/20 rounded-full transition"
+            className="p-2 hover:bg-white/10 rounded-full transition-colors duration-200"
             title={language === 'es' ? 'English' : 'Español'}
             aria-label={language === 'es' ? 'Cambiar a inglés' : 'Cambiar a español'}
           >
-            <Globe className="w-5 h-5 text-purple-400" />
+            <Globe className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" />
           </button>
           <span className="text-xs font-dm-sans text-slate-400 font-bold ml-2 min-w-max">
             {language.toUpperCase()}

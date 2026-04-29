@@ -1,128 +1,101 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const SQRT_5000 = Math.sqrt(5000);
+const getInitials = (name) => {
+  const parts = name.split(' ');
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[1][0]).toUpperCase();
+  }
+  return name.substring(0, 2).toUpperCase();
+};
+
+const getAvatarGradient = (index) => {
+  const gradients = [
+    'from-indigo-500 to-purple-600',
+    'from-blue-500 to-indigo-600',
+    'from-purple-500 to-pink-600',
+    'from-cyan-500 to-blue-600'
+  ];
+  return gradients[index % gradients.length];
+};
 
 const testimonials = [
   {
     tempId: 0,
-    testimonial: "Pasamos de 5 leads/día manuales a 200+ automáticos. AALTI redujo nuestro costo de adquisición 70% en 3 meses.",
-    by: "Carlos M., CEO - LogistiTech Solutions",
-    imgSrc: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+    testimonial: "AALTI integró sin problemas con nuestro CRM existente. El ROI llegó en 6 semanas. Imprescindible para cualquier empresa con ventas.",
+    name: "Sofia Rodríguez",
+    role: "CTO",
+    company: "CloudBusiness Inc"
   },
   {
     tempId: 1,
-    testimonial: "La IA de AALTI califica leads con 98% de precisión. Nuestro equipo de ventas ahora solo llama a prospects calificados.",
-    by: "María García, VP Ventas - FinanceHub Spain",
-    imgSrc: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
+    testimonial: "Escalamos ventas de €500k a €1.8M anuales sin contratar. AALTI hizo la diferencia entre fracasar y triunfar.",
+    name: "Roberto Martín",
+    role: "CEO",
+    company: "AgriTech Solutions"
   },
   {
     tempId: 2,
-    testimonial: "Antes gastábamos 40 horas/semana en seguimiento manual. Ahora es 100% automático 24/7. Recuperamos 200 horas mensuales.",
-    by: "Juan López, Operations Director - ManufacturePro",
-    imgSrc: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop"
+    testimonial: "Cierre de deals 35% más rápido. La IA agenda automáticamente llamadas en horarios óptimos. Es magia empresarial pura.",
+    name: "Laura Martínez",
+    role: "Sales Director",
+    company: "RealEstate Digital"
   },
   {
     tempId: 3,
-    testimonial: "AALTI integró sin problemas con nuestro CRM existente. El ROI llegó en 6 semanas. Imprescindible para cualquier empresa con ventas.",
-    by: "Sofia Rodríguez, CTO - CloudBusiness Inc",
-    imgSrc: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop"
-  },
-  {
-    tempId: 4,
-    testimonial: "No es solo IA, es un cambio de paradigma en ventas. AALTI nos permitió crecer sin contratar más personal de ventas.",
-    by: "David Chen, Founder - StartupAccel Ventures",
-    imgSrc: "https://images.unsplash.com/photo-1507537557991-488dacf2b1d5?w=400&h=400&fit=crop"
-  },
-  {
-    tempId: 5,
-    testimonial: "Cierre de deals 35% más rápido. La IA agenda automáticamente llamadas en horarios óptimos. Es magia empresarial pura.",
-    by: "Laura Martínez, Sales Director - RealEstate Digital",
-    imgSrc: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop"
-  },
-  {
-    tempId: 6,
-    testimonial: "Perdíamos 30% de leads por falta de seguimiento. Con AALTI, convertimos 12% más. Eso son miles de euros extra al mes.",
-    by: "Miguel Torres, Business Analyst - ConsultoriaX",
-    imgSrc: "https://images.unsplash.com/photo-1505228395891-9a51e7e86e81?w=400&h=400&fit=crop"
-  },
-  {
-    tempId: 7,
-    testimonial: "Implementación en 2 días. Sin cambios en infraestructura. AALTI funcionó desde el primer minuto. Increíble.",
-    by: "Elena Sánchez, IT Manager - ServicesGroup Europe",
-    imgSrc: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop"
-  },
-  {
-    tempId: 8,
     testimonial: "Nuestros clientes reciben respuestas en 30 segundos, 24/7. El NPS subió 40 puntos en 6 meses. AALTI cambió nuestra marca.",
-    by: "Andrés Ruiz, Customer Experience - OmniChannel Retail",
-    imgSrc: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop"
-  },
-  {
-    tempId: 9,
-    testimonial: "Benchmarked contra 5 competidores. AALTI fue el único con precisión >95% en clasificación de leads. Decisión obvvia.",
-    by: "Patricia Gómez, Head of Analytics - DataDrivenCorp",
-    imgSrc: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
-  },
-  {
-    tempId: 10,
-    testimonial: "Escalamos ventas de €500k a €1.8M anuales sin contratar. AALTI hizo la diferencia entre fracasar y triunfar.",
-    by: "Roberto Martín, CEO - AgriTech Solutions",
-    imgSrc: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
-  },
+    name: "Andrés Ruiz",
+    role: "Customer Experience",
+    company: "OmniChannel Retail"
+  }
 ];
 
-const TestimonialCard = ({ position, testimonial, handleMove, cardSize }) => {
+const TestimonialCard = ({ position, testimonial, handleMove, cardSize, index }) => {
   const isCenter = position === 0;
+  const initials = getInitials(testimonial.name);
+  const gradientClass = getAvatarGradient(index);
 
   return (
     <div
       onClick={() => handleMove(position)}
-      className={`absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out ${
+      className={`absolute left-1/2 top-1/2 cursor-pointer border p-8 transition-all duration-500 ease-in-out ${
         isCenter
-          ? "z-10 bg-gradient-to-br from-indigo-600 to-purple-600 text-white border-indigo-400"
-          : "z-0 bg-slate-800 text-slate-300 border-slate-700 hover:border-indigo-500/50"
+          ? "z-10 bg-slate-800 text-white border-indigo-500/50"
+          : "z-0 bg-slate-800/60 text-slate-300 border-slate-700 hover:border-indigo-500/30"
       }`}
       style={{
         width: cardSize,
         height: cardSize,
-        clipPath: `polygon(50px 0%, calc(100% - 50px) 0%, 100% 50px, 100% 100%, calc(100% - 50px) 100%, 50px 100%, 0 100%, 0 0)`,
+        borderRadius: '12px',
         transform: `
           translate(-50%, -50%)
           translateX(${(cardSize / 1.5) * position}px)
           translateY(${isCenter ? -65 : position % 2 ? 15 : -15}px)
           rotate(${isCenter ? 0 : position % 2 ? 2.5 : -2.5}deg)
         `,
-        boxShadow: isCenter ? "0px 8px 0px 4px rgba(99, 102, 241, 0.5)" : "0px 0px 0px 0px transparent"
+        boxShadow: isCenter ? "0px 20px 25px -5px rgba(0, 0, 0, 0.3), 0px 0px 0px 1px rgba(99, 102, 241, 0.3)" : "0px 4px 6px -1px rgba(0, 0, 0, 0.1)"
       }}
     >
-      <span
-        className="absolute block origin-top-right rotate-45 bg-slate-600"
-        style={{
-          right: -2,
-          top: 48,
-          width: SQRT_5000,
-          height: 2
-        }}
-      />
-      <img
-        src={testimonial.imgSrc}
-        alt={`${testimonial.by.split(',')[0]}`}
-        className="mb-4 h-14 w-12 bg-slate-700 object-cover object-top rounded-sm"
-        style={{
-          boxShadow: "3px 3px 0px rgba(15, 23, 42, 0.8)"
-        }}
-      />
-      <h3 className={`text-base sm:text-lg font-medium leading-relaxed ${
-        isCenter ? "text-white" : "text-slate-200"
-      }`}>
-        "{testimonial.testimonial}"
-      </h3>
-      <p className={`absolute bottom-8 left-8 right-8 mt-2 text-sm italic ${
-        isCenter ? "text-indigo-100" : "text-slate-400"
-      }`}>
-        - {testimonial.by}
-      </p>
+      <div className="flex flex-col h-full justify-between">
+        <div>
+          <div className="text-5xl text-indigo-400 mb-4 leading-none">"</div>
+          <p className="text-sm sm:text-base leading-relaxed text-white/80 mb-6">
+            {testimonial.testimonial}
+          </p>
+        </div>
+
+        <div className="pt-6 border-t border-slate-700/50">
+          <div className="flex items-center gap-3 mt-4">
+            <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${gradientClass} flex items-center justify-center flex-shrink-0`}>
+              <span className="text-white font-bold text-sm">{initials}</span>
+            </div>
+            <div className="min-w-0">
+              <p className="font-semibold text-white text-sm truncate">{testimonial.name}</p>
+              <p className="text-xs text-slate-400 truncate">{testimonial.role} · {testimonial.company}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -176,6 +149,7 @@ export const StaggerTestimonials = () => {
             handleMove={handleMove}
             position={position}
             cardSize={cardSize}
+            index={index}
           />
         );
       })}
