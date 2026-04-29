@@ -7,16 +7,26 @@ export const LanguageProvider = ({ children }) => {
   const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('selectedLanguage');
-    if (savedLanguage === 'en' || savedLanguage === 'es') {
-      setLanguage(savedLanguage);
+    try {
+      const savedLanguage = localStorage.getItem('selectedLanguage');
+      if (savedLanguage === 'en' || savedLanguage === 'es') {
+        setLanguage(savedLanguage);
+      }
+    } catch (e) {
+      // Private browsing mode or localStorage not available - use default language
+      console.debug('localStorage unavailable, using default language');
     }
     setIsHydrated(true);
   }, []);
 
   const handleSetLanguage = (lang) => {
     setLanguage(lang);
-    localStorage.setItem('selectedLanguage', lang);
+    try {
+      localStorage.setItem('selectedLanguage', lang);
+    } catch (e) {
+      // Private browsing mode or localStorage not available - continue without saving
+      console.debug('localStorage unavailable, using in-memory storage');
+    }
   };
 
   const toggleLanguage = () => {

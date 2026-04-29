@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 import * as THREE from 'three';
 import PerspectiveMarquee from './components/PerspectiveMarquee';
 import ImprovedContactForm from './components/ImprovedContactForm';
+import ClientLogos from './components/ClientLogos';
+import ContactPage from './pages/ContactPage';
 import { useLanguage } from './LanguageContext';
 import { translations } from './i18n';
 
@@ -725,7 +727,12 @@ export default function App() {
   const { language, toggleLanguage } = useLanguage();
   const t = translations[language];
   const [showContactForm, setShowContactForm] = useState(false);
+  const [showContactPage, setShowContactPage] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
+
+  if (showContactPage) {
+    return <ContactPage onBack={() => setShowContactPage(false)} />;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-950 text-white">
@@ -824,7 +831,7 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            <button onClick={() => setShowContactForm(true)}>
+            <button onClick={() => setShowContactPage(true)}>
               <ShinyButton variant="primary">
                 {t.heroMain.cta}
                 <ArrowRight className="w-4 h-4" />
@@ -842,25 +849,8 @@ export default function App() {
         </motion.div>
       </section>
 
-      {/* ─── SOCIAL PROOF ─── */}
-      <section className="relative py-20 overflow-hidden">
-        <motion.p
-          className="text-center text-slate-400 text-sm md:text-base font-dm-sans mb-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-        >
-          {t.socialProof.label}
-        </motion.p>
-
-        <Marquee speed={40}>
-          <div className="flex items-center gap-2 text-2xl font-bold text-slate-300">Google</div>
-          <div className="flex items-center gap-2 text-2xl font-bold text-slate-300">Amazon</div>
-          <div className="flex items-center gap-2 text-2xl font-bold text-slate-300">Meta</div>
-          <div className="flex items-center gap-2 text-2xl font-bold text-slate-300">Microsoft</div>
-          <div className="flex items-center gap-2 text-2xl font-bold text-slate-300">Apple</div>
-        </Marquee>
-      </section>
+      {/* ─── CLIENT LOGOS (SOCIAL PROOF) ─── */}
+      <ClientLogos language={language} />
 
       {/* ─── AI PLATFORMS PERSPECTIVE MARQUEE ─── */}
       <section className="relative py-40 overflow-hidden bg-gradient-to-b from-slate-950 via-indigo-950/30 to-slate-950">
