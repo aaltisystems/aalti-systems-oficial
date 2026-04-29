@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="es">
   <head>
@@ -15,11 +16,12 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://aaltisystems.com/">
     <meta property="og:title" content="AALTI SYSTEMS - Automatización B2B con IA">
-    <meta property="og:description" content="Sistemas que generan leads, califican prospectos y agendaban llamadas automáticamente 24/7.">
-    <meta property="og:image" content="https://aaltisystems.com/og-image.jpg">
+    <meta property="og:description" content="Sistemas que generan leads, califican prospectos y agendan llamadas automáticamente 24/7.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1677442d019cecf8dc13687b6718d505433e34219?w=1200&h=630&fit=crop&q=80&crop=entropy&cs=tinysrgb">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="AALTI SYSTEMS - Automatización con IA">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="AALTI SYSTEMS - Automatización con IA para Ventas B2B">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://aaltisystems.com/">
@@ -34,12 +36,109 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap">
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+    <!-- ── Critical base styles ── -->
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html {
+        scroll-behavior: auto !important; /* Lenis owns this */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      body { background: #030712; color: #f8fafc; overflow-x: hidden; }
+      /* Prevent FOUC */
+      #root { opacity: 0; transition: opacity 0.3s ease; }
+      #root.ready { opacity: 1; }
+    </style>
+
+    <!-- ── GSAP ecosystem (synchronous, before React) ── -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+
+    <!-- ── Lenis Smooth Scroll ── -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.45/bundled/lenis.min.js"></script>
+
+    <!-- ── Init Lenis + GSAP sync before React hydrates ── -->
+    <script>
+      (function initMotion() {
+        if (typeof Lenis === 'undefined' || typeof gsap === 'undefined') return;
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const lenis = new Lenis({
+          duration: 1.4,
+          easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          orientation: 'vertical',
+          gestureOrientation: 'vertical',
+          smoothWheel: true,
+          wheelMultiplier: 0.9,
+          touchMultiplier: 1.8,
+          infinite: false,
+        });
+
+        // Sync Lenis → GSAP ScrollTrigger
+        lenis.on('scroll', ScrollTrigger.update);
+
+        gsap.ticker.add(time => lenis.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0);
+
+        // Expose globally
+        window.__lenis = lenis;
+        window.gsap = gsap;
+        window.ScrollTrigger = ScrollTrigger;
+      })();
+    </script>
+
+    <!-- ── Schema Markup (JSON-LD) ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "AALTI SYSTEMS",
+      "url": "https://aaltisystems.com",
+      "logo": "https://aaltisystems.com/logo.png",
+      "description": "Automatización Inteligente B2B con IA - Sistemas autónomos para captar, calificar y cerrar clientes 24/7",
+      "sameAs": [
+        "https://instagram.com/aaltisystems",
+        "https://wa.me/34647119040"
+      ],
+      "contact": {
+        "@type": "ContactPoint",
+        "telephone": "+34-647-119-040",
+        "contactType": "Sales",
+        "email": "aaltistudio@gmail.com"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Automatización Inteligente B2B",
+      "description": "Sistemas autónomos que captan, califican y cierran clientes 24/7 mediante IA avanzada",
+      "serviceType": "B2B Automation & Sales AI",
+      "provider": {
+        "@type": "Organization",
+        "name": "AALTI SYSTEMS",
+        "url": "https://aaltisystems.com"
+      },
+      "areaServed": "ES",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "price": "Consulta",
+        "url": "https://aaltisystems.com"
+      }
+    }
+    </script>
+
+    <!-- ── React entry (module) ── -->
     <script type="module" src="/src/main.jsx"></script>
   </head>
   <body>

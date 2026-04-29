@@ -1,12 +1,11 @@
 User-agent: *
 Allow: /
-Disallow: /dist/
-Disallow: /node_modules/
-Disallow: /*.json$
-Disallow: /?*
-
-Crawl-delay: 1
-User-agent: AdsBot-Google
-Disallow:
+Disallow: /.git
+Disallow: /node_modules
+Disallow: /*.env*
 
 Sitemap: https://aaltisystems.com/sitemap.xml
+Crawl-delay: 1
+
+User-agent: Googlebot
+Priority: 10
