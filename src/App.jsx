@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
-import { Menu, X, Phone, Mail, Instagram, ArrowRight, Play, TrendingUp, Clock, Cpu, Moon, Sun, Rocket, Zap, Settings2, ShieldCheck, Lightbulb, Target, Check, Globe } from 'lucide-react';
+import { Menu, X, Phone, Mail, Instagram, ArrowRight, Play, TrendingUp, Clock, Cpu, Moon, Sun, Rocket, Zap, Settings2, ShieldCheck, Lightbulb, Target, Check, Globe, MessageCircle } from 'lucide-react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import * as THREE from 'three';
@@ -659,7 +659,7 @@ const Header = ({ isDarkMode, setIsDarkMode, language, toggleLanguage, onContact
 
         <div className="hidden md:flex items-center gap-3">
           <a href="https://wa.me/34647119040" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-white/10 rounded-full transition-colors duration-200" title="WhatsApp">
-            <svg className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371 0-.57 0-.198 0-.52.075-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.025 0-2.04-.315-2.918-.916l-.209-.13-2.165.568.578-2.11-.135-.214C4.9 2.715 6.175 2 7.59 2c2.393 0 4.344 1.951 4.344 4.345 0 1.148-.448 2.227-1.265 3.048l-.15.137zm11.588-1.636c-3.876-3.876-10.166-3.876-14.043 0-3.876 3.877-3.876 10.167 0 14.044 3.877 3.876 10.167 3.876 14.043 0 3.876-3.877 3.876-10.167 0-14.044z"/></svg>
+            <MessageCircle className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" />
           </a>
           <a href="https://instagram.com/aaltisystems" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-white/10 rounded-full transition-colors duration-200" title="Instagram">
             <Instagram className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" />
