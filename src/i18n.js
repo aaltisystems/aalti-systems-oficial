@@ -275,6 +275,29 @@ export const translations = {
       predictionAccuracy: "Precisión de Predicción",
       adaptationSpeed: "Velocidad de Adaptación",
       modelOptimization: "Optimización de Modelos"
+    },
+
+    faq: {
+      title: "Preguntas Frecuentes sobre Auditoría",
+      subtitle: "Resuelve tus dudas sobre cómo AALTI puede transformar tu negocio",
+      items: [
+        {
+          question: "¿Cuánto cuesta la auditoría inicial?",
+          answer: "La auditoría es completamente GRATUITA. Analizamos tu negocio sin compromisos. Solo pagas si decides implementar el sistema."
+        },
+        {
+          question: "¿Cuánto tiempo tarda la implementación?",
+          answer: "En promedio, 2-4 semanas. Integramos con tu CRM existente sin interrupciones. Algunos clientes reportan resultados en la primera semana."
+        },
+        {
+          question: "¿Funciona con cualquier CRM?",
+          answer: "Sí. AALTI integra nativamente con Salesforce, HubSpot, Pipedrive, y más de 50 plataformas via API. Si usas un CRM específico, lo conectamos."
+        },
+        {
+          question: "¿Qué garantía tienen los resultados?",
+          answer: "Garantizamos +30% en leads capturados en 90 días o devolvemos el costo de implementación. Tus resultados están blindados."
+        }
+      ]
     }
   },
   en: {
@@ -554,6 +577,29 @@ export const translations = {
       predictionAccuracy: "Prediction Accuracy",
       adaptationSpeed: "Adaptation Speed",
       modelOptimization: "Model Optimization"
+    },
+
+    faq: {
+      title: "Frequently Asked Questions",
+      subtitle: "Get answers about how AALTI can transform your business",
+      items: [
+        {
+          question: "How much does the audit cost?",
+          answer: "The audit is completely FREE. We analyze your business with no commitments. You only pay if you decide to implement the system."
+        },
+        {
+          question: "How long does implementation take?",
+          answer: "On average, 2-4 weeks. We integrate with your existing CRM without interruptions. Some clients report results within the first week."
+        },
+        {
+          question: "Does it work with any CRM?",
+          answer: "Yes. AALTI natively integrates with Salesforce, HubSpot, Pipedrive, and 50+ platforms via API. If you use a specific CRM, we connect it."
+        },
+        {
+          question: "What guarantees do you offer?",
+          answer: "+30% more leads captured in 90 days or we return your implementation cost. Your results are guaranteed."
+        }
+      ]
     }
   }
 };

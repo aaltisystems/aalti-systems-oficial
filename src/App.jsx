@@ -546,6 +546,7 @@ const HeroVideoDialog = ({ thumbnailSrc }) => {
                   src={thumbnailSrc}
                   alt="Demostración en vivo del pipeline de automatización: captura, calificación y cierre de clientes"
                   className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/20" />
                 <motion.div
@@ -1138,6 +1139,7 @@ export default function App() {
               loading="lazy"
               width={1400}
               height={720}
+              decoding="async"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.5 }}
             />
@@ -1293,6 +1295,42 @@ export default function App() {
             </ShinyButton>
           </button>
         </motion.div>
+      </section>
+
+      {/* ─── FAQ SECTION ─── */}
+      <section className="relative max-w-4xl mx-auto px-4 py-16">
+        <motion.div
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-space-grotesk font-bold text-center mb-4 text-gradient">
+            {t.faq.title}
+          </h2>
+          <p className="text-center text-slate-300 max-w-2xl mx-auto">
+            {t.faq.subtitle}
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {t.faq.items.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.1, duration: 0.6 }}
+              className="p-6 rounded-2xl border border-indigo-500/20 bg-gradient-to-br from-indigo-950/20 via-purple-950/10 to-transparent hover:border-indigo-500/50 transition-all"
+            >
+              <h3 className="font-space-grotesk text-lg font-bold text-indigo-400 mb-3">
+                {item.question}
+              </h3>
+              <p className="text-slate-300 font-dm-sans leading-relaxed text-sm">
+                {item.answer}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
       {/* ─── CTA FINAL ─── */}
