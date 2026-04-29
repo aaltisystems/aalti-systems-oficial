@@ -623,7 +623,7 @@ const Marquee = ({ children, speed = 50 }) => {
 };
 
 // ─── Navigation Header ─────────────────────────────────────────
-const Header = ({ isDarkMode, setIsDarkMode, language, toggleLanguage }) => {
+const Header = ({ isDarkMode, setIsDarkMode, language, toggleLanguage, onContactClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -657,26 +657,20 @@ const Header = ({ isDarkMode, setIsDarkMode, language, toggleLanguage }) => {
           <span className="text-white font-space-grotesk font-bold text-lg">AALTI SYSTEMS</span>
         </div>
 
-        <div className="hidden md:flex items-center gap-2">
-          <a href="tel:+34647119040" className="p-2 hover:bg-white/10 rounded-full transition-colors duration-200" title="Teléfono">
-            <Phone className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" />
-          </a>
-          <a href="mailto:aaltistudio@gmail.com" className="p-2 hover:bg-white/10 rounded-full transition-colors duration-200" title="Email">
-            <Mail className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" />
-          </a>
+        <div className="hidden md:flex items-center gap-3">
           <a href="https://wa.me/34647119040" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-white/10 rounded-full transition-colors duration-200" title="WhatsApp">
-            <Phone className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" />
+            <svg className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371 0-.57 0-.198 0-.52.075-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.025 0-2.04-.315-2.918-.916l-.209-.13-2.165.568.578-2.11-.135-.214C4.9 2.715 6.175 2 7.59 2c2.393 0 4.344 1.951 4.344 4.345 0 1.148-.448 2.227-1.265 3.048l-.15.137zm11.588-1.636c-3.876-3.876-10.166-3.876-14.043 0-3.876 3.877-3.876 10.167 0 14.044 3.877 3.876 10.167 3.876 14.043 0 3.876-3.877 3.876-10.167 0-14.044z"/></svg>
           </a>
           <a href="https://instagram.com/aaltisystems" target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-white/10 rounded-full transition-colors duration-200" title="Instagram">
             <Instagram className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" />
           </a>
           <button
-            onClick={() => setIsDarkMode(!isDarkMode)}
-            className="p-2 hover:bg-white/10 rounded-full transition-colors duration-200"
-            title={isDarkMode ? 'Light Mode' : 'Dark Mode'}
-            aria-label={isDarkMode ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+            onClick={onContactClick}
+            className="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-full transition-all duration-200 text-white text-sm font-dm-sans font-semibold flex items-center gap-2"
+            title="Email"
           >
-            {isDarkMode ? <Sun className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" /> : <Moon className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" />}
+            <Mail className="w-4 h-4" />
+            Contactar
           </button>
           <button
             onClick={toggleLanguage}
@@ -686,10 +680,6 @@ const Header = ({ isDarkMode, setIsDarkMode, language, toggleLanguage }) => {
           >
             <Globe className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" />
           </button>
-          <span className="text-xs font-dm-sans text-slate-400 font-bold ml-2 min-w-max">
-            {language.toUpperCase()}
-          </span>
-          <a href="tel:+34647119040" className="text-white text-sm font-dm-sans ml-3">+34 647 119 040</a>
         </div>
 
         <button
@@ -702,24 +692,26 @@ const Header = ({ isDarkMode, setIsDarkMode, language, toggleLanguage }) => {
 
       {isMenuOpen && (
         <motion.div
-          className="md:hidden bg-slate-950/95 backdrop-blur-xl border-t border-indigo-500/20 p-4 space-y-4"
+          className="md:hidden bg-slate-950/95 backdrop-blur-xl border-t border-indigo-500/20 p-4 space-y-3"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <a href="tel:+34647119040" className="text-white text-sm flex items-center gap-2">
-            <Phone className="w-4 h-4" /> +34 647 119 040
+          <a href="https://wa.me/34647119040" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2 bg-white/10 hover:bg-white/20 rounded-lg text-white text-sm font-dm-sans font-semibold flex items-center justify-center gap-2 transition-colors duration-200">
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371 0-.57 0-.198 0-.52.075-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.025 0-2.04-.315-2.918-.916l-.209-.13-2.165.568.578-2.11-.135-.214C4.9 2.715 6.175 2 7.59 2c2.393 0 4.344 1.951 4.344 4.345 0 1.148-.448 2.227-1.265 3.048l-.15.137zm11.588-1.636c-3.876-3.876-10.166-3.876-14.043 0-3.876 3.877-3.876 10.167 0 14.044 3.877 3.876 10.167 3.876 14.043 0 3.876-3.877 3.876-10.167 0-14.044z"/></svg>
+            WhatsApp
           </a>
-          <a href="mailto:aaltistudio@gmail.com" className="text-white text-sm flex items-center gap-2">
-            <Mail className="w-4 h-4" /> aaltistudio@gmail.com
+          <a href="https://instagram.com/aaltisystems" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2 bg-white/10 hover:bg-white/20 rounded-lg text-white text-sm font-dm-sans font-semibold flex items-center justify-center gap-2 transition-colors duration-200">
+            <Instagram className="w-4 h-4" /> Instagram
           </a>
-          <div className="flex gap-2">
-            <a href="https://wa.me/34647119040" target="_blank" rel="noopener noreferrer" className="flex-1 text-center py-2 bg-green-500/20 rounded-lg text-white text-sm flex items-center justify-center gap-2">
-              <Phone className="w-4 h-4" /> WhatsApp
-            </a>
-            <a href="https://instagram.com/aaltisystems" target="_blank" rel="noopener noreferrer" className="flex-1 text-center py-2 bg-pink-500/20 rounded-lg text-white text-sm flex items-center justify-center gap-2">
-              <Instagram className="w-4 h-4" /> Instagram
-            </a>
-          </div>
+          <button
+            onClick={() => {
+              onContactClick();
+              setIsMenuOpen(false);
+            }}
+            className="w-full py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-lg text-white text-sm font-dm-sans font-semibold flex items-center justify-center gap-2 transition-all duration-200"
+          >
+            <Mail className="w-4 h-4" /> Contactar
+          </button>
         </motion.div>
       )}
     </motion.header>
@@ -750,7 +742,7 @@ export default function App() {
       <RetroGrid angle={65} />
       <Particles quantity={100} color="#6366f1" />
 
-      <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} language={language} toggleLanguage={toggleLanguage} />
+      <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} language={language} toggleLanguage={toggleLanguage} onContactClick={() => setShowContactForm(true)} />
 
       <ImprovedContactForm isOpen={showContactForm} onClose={() => setShowContactForm(false)} />
 
@@ -1037,6 +1029,21 @@ export default function App() {
             <Cube3D faces={t.cube3d.faces} />
           </Suspense>
         </motion.div>
+
+        <motion.div
+          className="mt-20 flex justify-center"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <button onClick={() => setShowContactForm(true)} className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+            <div className="relative px-8 py-3 bg-slate-950 rounded-full font-dm-sans font-semibold text-white flex items-center gap-2 group-hover:bg-slate-900 transition duration-200">
+              {t.heroMain.cta}
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </button>
+        </motion.div>
       </section>
 
       {/* ─── BENTO GRID ─── */}
@@ -1070,6 +1077,24 @@ export default function App() {
             index={2}
           />
         </div>
+
+        <motion.div
+          className="mt-20 flex justify-center"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
+            <button onClick={() => setShowContactForm(true)} className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-full font-dm-sans font-semibold text-white flex items-center gap-2 transition-all duration-200 shadow-lg hover:shadow-xl">
+              <Mail className="w-4 h-4" />
+              {t.heroMain.cta}
+            </button>
+            <a href="https://wa.me/34647119040" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-white/10 hover:bg-white/20 rounded-full font-dm-sans font-semibold text-white flex items-center gap-2 transition-all duration-200 border border-white/20">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371 0-.57 0-.198 0-.52.075-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.025 0-2.04-.315-2.918-.916l-.209-.13-2.165.568.578-2.11-.135-.214C4.9 2.715 6.175 2 7.59 2c2.393 0 4.344 1.951 4.344 4.345 0 1.148-.448 2.227-1.265 3.048l-.15.137zm11.588-1.636c-3.876-3.876-10.166-3.876-14.043 0-3.876 3.877-3.876 10.167 0 14.044 3.877 3.876 10.167 3.876 14.043 0 3.876-3.877 3.876-10.167 0-14.044z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </motion.div>
       </section>
 
       {/* ─── SCROLL ANIMATION SECTION ─── */}
@@ -1283,16 +1308,22 @@ export default function App() {
         </Suspense>
 
         <motion.div
-          className="mt-16 flex justify-center"
+          className="mt-20 flex flex-col md:flex-row justify-center gap-4 items-center"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <button onClick={() => setShowContactPage(true)}>
-            <ShinyButton variant="secondary">
-              {t.heroMain.ctaSecondary}
-              <ArrowRight className="w-4 h-4" />
-            </ShinyButton>
+          <button onClick={() => setShowContactForm(true)} className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-full font-dm-sans font-semibold text-white flex items-center gap-2 transition-all duration-200 shadow-lg hover:shadow-xl">
+            <Mail className="w-4 h-4" />
+            {t.heroMain.cta}
+          </button>
+          <a href="https://instagram.com/aaltisystems" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-white/10 hover:bg-white/20 rounded-full font-dm-sans font-semibold text-white flex items-center gap-2 transition-all duration-200 border border-white/20">
+            <Instagram className="w-4 h-4" />
+            Instagram
+          </a>
+          <button onClick={() => setShowContactPage(true)} className="px-8 py-3 bg-white/10 hover:bg-white/20 rounded-full font-dm-sans font-semibold text-white flex items-center gap-2 transition-all duration-200 border border-white/20">
+            {t.heroMain.ctaSecondary}
+            <ArrowRight className="w-4 h-4" />
           </button>
         </motion.div>
       </section>
@@ -1360,21 +1391,19 @@ export default function App() {
 
       {/* ─── FOOTER ─── */}
       <footer className="relative border-t border-indigo-500/20 py-12 text-center text-slate-400 text-sm font-dm-sans">
-        <p className="mb-4">{t.footer.copyright}</p>
-        <div className="flex justify-center gap-6 mb-4 flex-wrap">
-          <a href="tel:+34647119040" className="hover:text-indigo-400 transition flex items-center justify-center gap-2">
-            <Phone className="w-4 h-4" /> +34 647 119 040
+        <p className="mb-8">{t.footer.copyright}</p>
+        <div className="flex justify-center gap-3 flex-wrap mb-8">
+          <button onClick={() => setShowContactForm(true)} className="px-6 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-full text-white text-sm font-semibold flex items-center gap-2 transition-all duration-200">
+            <Mail className="w-4 h-4" />
+            Contactar
+          </button>
+          <a href="https://wa.me/34647119040" target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-white text-sm font-semibold flex items-center gap-2 transition-all duration-200 border border-white/20">
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371 0-.57 0-.198 0-.52.075-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.025 0-2.04-.315-2.918-.916l-.209-.13-2.165.568.578-2.11-.135-.214C4.9 2.715 6.175 2 7.59 2c2.393 0 4.344 1.951 4.344 4.345 0 1.148-.448 2.227-1.265 3.048l-.15.137zm11.588-1.636c-3.876-3.876-10.166-3.876-14.043 0-3.876 3.877-3.876 10.167 0 14.044 3.877 3.876 10.167 3.876 14.043 0 3.876-3.877 3.876-10.167 0-14.044z"/></svg>
+            WhatsApp
           </a>
-          <a href="mailto:aaltistudio@gmail.com" className="hover:text-indigo-400 transition flex items-center justify-center gap-2">
-            <Mail className="w-4 h-4" /> aaltistudio@gmail.com
-          </a>
-        </div>
-        <div className="flex justify-center gap-4 flex-wrap">
-          <a href="https://wa.me/34647119040" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition flex items-center gap-1">
-            <Phone className="w-4 h-4" /> WhatsApp
-          </a>
-          <a href="https://instagram.com/aaltisystems" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400 transition flex items-center gap-1">
-            <Instagram className="w-4 h-4" /> @aaltisystems
+          <a href="https://instagram.com/aaltisystems" target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-white text-sm font-semibold flex items-center gap-2 transition-all duration-200 border border-white/20">
+            <Instagram className="w-4 h-4" />
+            Instagram
           </a>
         </div>
       </footer>
