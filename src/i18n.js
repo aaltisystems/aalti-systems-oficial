@@ -2,7 +2,7 @@ export const translations = {
   es: {
     // Header & Navigation
     header: {
-      soluciones: "Soluciones",
+      soluciones: "Soluciones de Automatización",
       comoComunica: "Cómo Funciona",
       testimonios: "Testimonios",
       contacto: "Contacto"
@@ -179,14 +179,14 @@ export const translations = {
     },
 
     features: {
-      compatible: "100% Compatible",
-      compatibleDesc: "APIs modernas integradas",
+      compatible: "Conéctate Fácilmente",
+      compatibleDesc: "Integración con cualquier herramienta",
       availability: "Disponibilidad 24/7",
-      availabilityDesc: "Sin interrupciones garantizado",
-      latency: "Latencia Mínima",
-      latencyDesc: "Respuestas en milisegundos",
-      security: "Enterprise Security",
-      securityDesc: "Encriptación end-to-end"
+      availabilityDesc: "Operación continua sin excepciones",
+      latency: "Respuestas Instantáneas",
+      latencyDesc: "Decisiones en milisegundos",
+      security: "Seguridad Enterprise",
+      securityDesc: "Encriptación end-to-end + Cumplimiento RGPD"
     },
 
     capabilitiesSection: {
@@ -280,7 +280,7 @@ export const translations = {
   en: {
     // Header & Navigation
     header: {
-      soluciones: "Solutions",
+      soluciones: "Automation Solutions",
       comoComunica: "How It Works",
       testimonios: "Testimonials",
       contacto: "Contact"
@@ -458,14 +458,14 @@ export const translations = {
     },
 
     features: {
-      compatible: "100% Compatible",
-      compatibleDesc: "Modern APIs integrated",
+      compatible: "Easy Integration",
+      compatibleDesc: "Connect with any tool",
       availability: "24/7 Availability",
-      availabilityDesc: "Guaranteed no interruptions",
-      latency: "Minimal Latency",
-      latencyDesc: "Responses in milliseconds",
+      availabilityDesc: "Continuous operation without interruptions",
+      latency: "Instant Responses",
+      latencyDesc: "Decisions in milliseconds",
       security: "Enterprise Security",
-      securityDesc: "End-to-end encryption"
+      securityDesc: "End-to-end encryption + GDPR compliance"
     },
 
     capabilitiesSection: {

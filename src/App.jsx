@@ -510,7 +510,7 @@ const HeroVideoDialog = ({ thumbnailSrc }) => {
         <div className="relative bg-gradient-to-br from-slate-900 to-slate-950 aspect-video flex items-center justify-center overflow-hidden">
           <img
             src={thumbnailSrc}
-            alt="Video Thumbnail"
+            alt="Video de demostración: sistema automático de captura y cierre de leads"
             className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
           />
           <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-all" />
@@ -541,7 +541,7 @@ const HeroVideoDialog = ({ thumbnailSrc }) => {
               <div className="relative rounded-lg overflow-hidden bg-black aspect-video flex items-center justify-center">
                 <img
                   src={thumbnailSrc}
-                  alt="Video"
+                  alt="Demostración en vivo del pipeline de automatización: captura, calificación y cierre de clientes"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/20" />
@@ -670,7 +670,7 @@ const Header = ({ isDarkMode, setIsDarkMode, language, toggleLanguage }) => {
             onClick={() => setIsDarkMode(!isDarkMode)}
             className="p-2 hover:bg-indigo-500/20 rounded-full transition"
             title={isDarkMode ? 'Light Mode' : 'Dark Mode'}
-            aria-label={isDarkMode ? 'Light Mode' : 'Dark Mode'}
+            aria-label={isDarkMode ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
           >
             {isDarkMode ? <Sun className="w-5 h-5 text-yellow-400" /> : <Moon className="w-5 h-5 text-slate-400" />}
           </button>
@@ -678,7 +678,7 @@ const Header = ({ isDarkMode, setIsDarkMode, language, toggleLanguage }) => {
             onClick={toggleLanguage}
             className="p-2 hover:bg-purple-500/20 rounded-full transition"
             title={language === 'es' ? 'English' : 'Español'}
-            aria-label={language === 'es' ? 'English' : 'Español'}
+            aria-label={language === 'es' ? 'Cambiar a inglés' : 'Cambiar a español'}
           >
             <Globe className="w-5 h-5 text-purple-400" />
           </button>
@@ -776,7 +776,7 @@ export default function App() {
             >
               <img
                 src="/logo.png"
-                alt="AALTI SYSTEMS"
+                alt="AALTI SYSTEMS - Automatización de ventas B2B con inteligencia artificial"
                 className="h-20 md:h-28 w-auto drop-shadow-2xl"
                 style={{
                   filter: 'drop-shadow(0 0 20px rgba(99, 102, 241, 0.5))',
