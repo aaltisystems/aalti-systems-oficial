@@ -11,7 +11,8 @@ export const ImprovedContactForm = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    problem: ''
+    problem: '',
+    acceptPrivacy: false
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -23,6 +24,7 @@ export const ImprovedContactForm = ({ isOpen, onClose }) => {
     if (!formData.email.trim()) newErrors.email = t.contactForm.required;
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = 'Email inválido';
     if (!formData.problem.trim()) newErrors.problem = t.contactForm.required;
+    if (!formData.acceptPrivacy) newErrors.acceptPrivacy = 'Debes aceptar la política de privacidad';
     return newErrors;
   };
 
@@ -40,7 +42,7 @@ export const ImprovedContactForm = ({ isOpen, onClose }) => {
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitSuccess(true);
-      setFormData({ name: '', email: '', problem: '' });
+      setFormData({ name: '', email: '', problem: '', acceptPrivacy: false });
 
       // Auto close after 3 seconds
       setTimeout(() => {
@@ -148,6 +150,26 @@ export const ImprovedContactForm = ({ isOpen, onClose }) => {
                   <p className="text-red-400 text-sm mt-1">{errors.problem}</p>
                 )}
               </div>
+
+              {/* Privacy Checkbox */}
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="acceptPrivacy"
+                  checked={formData.acceptPrivacy}
+                  onChange={(e) => {
+                    setFormData({ ...formData, acceptPrivacy: e.target.checked });
+                    if (errors.acceptPrivacy) setErrors({ ...errors, acceptPrivacy: '' });
+                  }}
+                  className="mt-1 w-4 h-4 rounded border-indigo-500/30 bg-slate-800/50 text-indigo-500 focus:ring-indigo-400 cursor-pointer"
+                />
+                <label htmlFor="acceptPrivacy" className="text-xs text-slate-300 cursor-pointer">
+                  Acepto la <span className="text-indigo-400 hover:text-indigo-300">política de privacidad</span> y entiendo que mis datos se utilizarán solo para contacto comercial.
+                </label>
+              </div>
+              {errors.acceptPrivacy && (
+                <p className="text-red-400 text-sm">{errors.acceptPrivacy}</p>
+              )}
 
               {/* Submit Button */}
               <motion.button
