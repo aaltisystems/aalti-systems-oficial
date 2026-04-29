@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <!-- Gradient para el logo -->
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Gradient radial para glow -->
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="256" height="256" fill="#030712"/>
+
+  <!-- Glow effect subtle -->
+  <circle cx="128" cy="128" r="120" fill="url(#glowGradient)" opacity="0.3"/>
+
+  <!-- Triángulo superior -->
+  <polygon points="128,40 200,160 56,160" fill="url(#logoGradient)" opacity="0.95" stroke="url(#logoGradient)" stroke-width="1" stroke-linejoin="round"/>
+
+  <!-- Círculo superior derecha -->
+  <circle cx="170" cy="95" r="35" fill="none" stroke="url(#logoGradient)" stroke-width="2.5" opacity="0.9"/>
+
+  <!-- Círculo inferior izquierda -->
+  <circle cx="75" cy="160" r="40" fill="none" stroke="url(#logoGradient)" stroke-width="2.5" opacity="0.9"/>
+
+  <!-- Círculo inferior derecha -->
+  <circle cx="185" cy="175" r="38" fill="none" stroke="url(#logoGradient)" stroke-width="2.5" opacity="0.9"/>
+
+  <!-- Línea central conectora -->
+  <line x1="95" y1="128" x2="155" y2="128" stroke="url(#logoGradient)" stroke-width="2" opacity="0.7"/>
+
+  <!-- Accent dot (AI theme) - cyan -->
+  <circle cx="220" cy="50" r="12" fill="#0ea5e9" opacity="0.3"/>
+  <circle cx="220" cy="50" r="8" fill="#0ea5e9" opacity="0.8"/>
+</svg>
