@@ -4,7 +4,7 @@ import { X, Send } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../i18n';
 
-export const ImprovedContactForm = ({ isOpen, onClose }) => {
+export const ImprovedContactForm = ({ isOpen, onClose, onShowPrivacy }) => {
   const { language } = useLanguage();
   const t = translations[language];
 
@@ -12,7 +12,8 @@ export const ImprovedContactForm = ({ isOpen, onClose }) => {
     name: '',
     email: '',
     problem: '',
-    acceptPrivacy: false
+    acceptPrivacy: false,
+    website: '' // honeypot — must stay empty (hidden from real users)
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,14 +23,19 @@ export const ImprovedContactForm = ({ isOpen, onClose }) => {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = t.contactForm.required;
     if (!formData.email.trim()) newErrors.email = t.contactForm.required;
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = 'Email inválido';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = t.contactForm.emailInvalid;
     if (!formData.problem.trim()) newErrors.problem = t.contactForm.required;
-    if (!formData.acceptPrivacy) newErrors.acceptPrivacy = 'Debes aceptar la política de privacidad';
+    if (!formData.acceptPrivacy) newErrors.acceptPrivacy = t.contactForm.privacyRequired;
     return newErrors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Honeypot: a filled hidden field means a bot submitted the form.
+    // Silently ignore without giving feedback that would help spammers.
+    if (formData.website) return;
+
     const newErrors = validateForm();
 
     if (Object.keys(newErrors).length > 0) {
@@ -42,7 +48,7 @@ export const ImprovedContactForm = ({ isOpen, onClose }) => {
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitSuccess(true);
-      setFormData({ name: '', email: '', problem: '', acceptPrivacy: false });
+      setFormData({ name: '', email: '', problem: '', acceptPrivacy: false, website: '' });
 
       // Auto close after 3 seconds
       setTimeout(() => {
@@ -85,6 +91,18 @@ export const ImprovedContactForm = ({ isOpen, onClose }) => {
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Honeypot field — hidden from users, catches bots */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                value={formData.website}
+                onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+              />
+
               {/* Name Field */}
               <div>
                 <label className="block text-sm font-dm-sans text-slate-300 mb-2">
@@ -164,7 +182,19 @@ export const ImprovedContactForm = ({ isOpen, onClose }) => {
                   className="mt-1 w-4 h-4 rounded border-indigo-500/30 bg-slate-800/50 text-indigo-500 focus:ring-indigo-400 cursor-pointer"
                 />
                 <label htmlFor="acceptPrivacy" className="text-xs text-slate-300 cursor-pointer">
-                  Acepto la <span className="text-indigo-400 hover:text-indigo-300">política de privacidad</span> y entiendo que mis datos se utilizarán solo para contacto comercial.
+                  {t.contactForm.privacyBefore}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      if (onShowPrivacy) onShowPrivacy();
+                    }}
+                    className="text-indigo-400 hover:text-indigo-300 underline"
+                  >
+                    {t.contactForm.privacyLink}
+                  </button>
+                  {t.contactForm.privacyAfter}
                 </label>
               </div>
               {errors.acceptPrivacy && (

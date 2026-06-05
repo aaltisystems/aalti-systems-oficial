@@ -13,7 +13,8 @@ export const translations = {
       label: "Automatización Inteligente",
       headline: "Tu Competencia Ya Usa IA. Tú Sigues Perdiendo Ventas.",
       description: "Instalamos Sistemas Autónomos que captan, califican y cierran clientes 24/7 sin intervención manual. Auditoría GRATUITA.",
-      cta: "Auditoría Gratuita"
+      cta: "Auditoría Gratuita",
+      ctaSecondary: "Ver Demo"
     },
 
     // Bento Grid Section
@@ -142,7 +143,21 @@ export const translations = {
       success: "¡Gracias! Te contactaremos pronto.",
       connectNow: "Conecta con nosotros ahora:",
       closeForm: "Cerrar",
-      required: "Este campo es obligatorio"
+      required: "Este campo es obligatorio",
+      emailInvalid: "Email inválido",
+      privacyBefore: "Acepto la ",
+      privacyLink: "política de privacidad",
+      privacyAfter: " y entiendo que mis datos se utilizarán solo para contacto comercial.",
+      privacyRequired: "Debes aceptar la política de privacidad"
+    },
+
+    // Cookie Banner
+    cookies: {
+      title: "Cookies y Privacidad",
+      text: "Utilizamos cookies analíticas para mejorar tu experiencia. No almacenamos datos personales.",
+      privacyLink: "Más información",
+      accept: "Aceptar",
+      reject: "Rechazar"
     },
 
     // Contact Buttons
@@ -444,7 +459,21 @@ export const translations = {
       success: "Thank you! We'll contact you soon.",
       connectNow: "Connect with us now:",
       closeForm: "Close",
-      required: "This field is required"
+      required: "This field is required",
+      emailInvalid: "Invalid email",
+      privacyBefore: "I accept the ",
+      privacyLink: "privacy policy",
+      privacyAfter: " and understand my data will be used only for commercial contact.",
+      privacyRequired: "You must accept the privacy policy"
+    },
+
+    // Cookie Banner
+    cookies: {
+      title: "Cookies & Privacy",
+      text: "We use analytics cookies to improve your experience. We do not store personal data.",
+      privacyLink: "Learn more",
+      accept: "Accept",
+      reject: "Reject"
     },
 
     // Contact Buttons
@@ -598,6 +627,322 @@ export const translations = {
         {
           question: "What guarantees do you offer?",
           answer: "+30% more leads captured in 90 days or we return your implementation cost. Your results are guaranteed."
+        }
+      ]
+    }
+  },
+  pl: {
+    // Header & Navigation
+    header: {
+      soluciones: "Rozwiązania automatyzacji",
+      comoComunica: "Jak to działa",
+      testimonios: "Opinie",
+      contacto: "Kontakt"
+    },
+
+    // Hero Section
+    hero: {
+      label: "Inteligentna automatyzacja",
+      headline: "Twoja Konkurencja Już Używa AI. Ty Wciąż Tracisz Sprzedaż.",
+      description: "Wdrażamy Autonomiczne Systemy, które pozyskują, kwalifikują i finalizują klientów 24/7 bez ręcznej interwencji. BEZPŁATNY Audyt.",
+      cta: "Bezpłatny Audyt",
+      ctaSecondary: "Zobacz Demo"
+    },
+
+    // Bento Grid Section
+    bento: {
+      title: "Trzy Filary Transformacji",
+      card1: {
+        title: "+40% Skuteczności Sprzedaży",
+        description: "Wdrażamy inteligentne systemy, które pozyskują, filtrują i pielęgnują Twoich potencjalnych klientów na autopilocie."
+      },
+      card2: {
+        title: "Oszczędź 20h Tygodniowo",
+        description: "Delegujemy powtarzalną pracę do algorytmów, aby Twój zespół skupił się na tym, co naprawdę ważne: rozwoju."
+      },
+      card3: {
+        title: "Decyzje w Milisekundach",
+        description: "AI analizuje kontekst, historię i zachowanie, aby podejmować decyzje bez czekania na akceptację człowieka."
+      }
+    },
+
+    // Scroll Section 1
+    scroll1: {
+      label: "Inteligentna automatyzacja",
+      title: "Pozyskuj, Kwalifikuj i Finalizuj Automatycznie",
+      description: "Twój system sprzedaży działa 24/7 bez przerwy. AALTI SYSTEMS automatycznie pozyskuje leady, kwalifikuje je według Twoich kryteriów i umawia rozmowy finalizujące. Wszystko w czasie rzeczywistym, bez ręcznej interwencji.",
+      metric1: "500+",
+      metric1Label: "Leadów/dzień pozyskanych",
+      metric2: "95%",
+      metric2Label: "Wskaźnik dokładności",
+      metric3: "0",
+      metric3Label: "Ręczna interwencja"
+    },
+
+    // Testimonials
+    testimonials: {
+      title: "Jak ponad 50 Firm Zwielokrotniło Przychody",
+      subtitle: "Od startupów po firmy z listy Fortune 500 — przekształciły swoje operacje dzięki AALTI SYSTEMS"
+    },
+
+    // Scroll Section 2
+    scroll2: {
+      label: "Sztuczna inteligencja",
+      title: "Algorytmy, Które Się Uczą",
+      description: "Nasze modele AI uczą się z każdą interakcją. Nieustannie poprawiają swoją dokładność, dostosowują strategie do Twojego rynku i optymalizują wyniki bez konieczności ponownego trenowania.",
+      continuousImprovement: "Ciągłe Doskonalenie w Czasie Rzeczywistym",
+      accuracy: "Dokładność Predykcji",
+      adaptation: "Szybkość Adaptacji",
+      optimization: "Optymalizacja Modeli"
+    },
+
+    // Marquee Section
+    marquee: {
+      title: "Połącz z ChatGPT, Claude i GPT-4",
+      compatible: "100% Kompatybilność",
+      compatibleDesc: "Zintegrowane nowoczesne API",
+      availability: "Dostępność 24/7",
+      availabilityDesc: "Gwarantowany brak przerw",
+      latency: "Minimalne Opóźnienia",
+      latencyDesc: "Odpowiedzi w milisekundach",
+      security: "Bezpieczeństwo Enterprise",
+      securityDesc: "Szyfrowanie end-to-end",
+      capabilities: "Zaawansowane Możliwości",
+      capabilitiesItems: [
+        "Analiza semantyczna w czasie rzeczywistym",
+        "Automatyczne generowanie treści",
+        "Podejmowanie decyzji w oparciu o kontekst",
+        "Ciągłe uczenie bez ponownego trenowania"
+      ],
+      useCases: "Przypadki Użycia",
+      useCasesItems: [
+        "Precyzyjna klasyfikacja leadów",
+        "Spersonalizowane odpowiedzi dla klientów",
+        "Predykcja prawdopodobieństwa finalizacji",
+        "Dynamiczna optymalizacja strategii"
+      ]
+    },
+
+    // Cube 3D Section
+    cube: {
+      title: "Jak Działa AALTI",
+      faces: [
+        {
+          title: "Lead Generation",
+          description: "AI automatycznie pozyskuje leady 24/7/365 z wielu kanałów jednocześnie"
+        },
+        {
+          title: "Qualification",
+          description: "Inteligentna klasyfikacja według spersonalizowanych kryteriów z dokładnością >95%"
+        },
+        {
+          title: "Engagement",
+          description: "Spersonalizowane odpowiedzi i automatyczny nurturing w języku naturalnym"
+        },
+        {
+          title: "Closing",
+          description: "Harmonogram rozmów zoptymalizowany w godzinach maksymalnej konwersji"
+        },
+        {
+          title: "Analytics",
+          description: "Pulpit w czasie rzeczywistym z metrykami konwersji i ROI"
+        },
+        {
+          title: "Optimization",
+          description: "Uczenie maszynowe nieustannie poprawia wskaźniki konwersji"
+        }
+      ]
+    },
+
+    // CTA Final
+    ctaFinal: {
+      title: "Twoja Konkurencja Już Używa AI. Na Co Czekasz?",
+      description: "To nie magia, to sztuczna inteligencja pracująca dla Ciebie 24/7. Umówienie jest bezpłatne, transformacja jest nieunikniona.",
+      cta: "Bezpłatny Audyt Teraz"
+    },
+
+    // Contact Form
+    contactForm: {
+      title: "Bezpłatny Audyt",
+      name: "Imię i Nazwisko",
+      namePlaceholder: "Twoje imię",
+      email: "Email",
+      emailPlaceholder: "ty@email.com",
+      problem: "Jaki Jest Twój Główny Problem?",
+      problemPlaceholder: "Opisz krótko wyzwanie, z którym mierzysz się w sprzedaży/operacjach...",
+      submit: "Wyślij Zgłoszenie",
+      sending: "Wysyłanie...",
+      success: "Dziękujemy! Skontaktujemy się wkrótce.",
+      connectNow: "Połącz się z nami teraz:",
+      closeForm: "Zamknij",
+      required: "To pole jest wymagane",
+      emailInvalid: "Nieprawidłowy email",
+      privacyBefore: "Akceptuję ",
+      privacyLink: "politykę prywatności",
+      privacyAfter: " i rozumiem, że moje dane będą wykorzystane wyłącznie do kontaktu handlowego.",
+      privacyRequired: "Musisz zaakceptować politykę prywatności"
+    },
+
+    // Cookie Banner
+    cookies: {
+      title: "Pliki cookie i prywatność",
+      text: "Używamy analitycznych plików cookie, aby ulepszyć Twoje doświadczenie. Nie przechowujemy danych osobowych.",
+      privacyLink: "Więcej informacji",
+      accept: "Akceptuję",
+      reject: "Odrzuć"
+    },
+
+    // Contact Buttons
+    contactButtons: {
+      whatsapp: "WhatsApp",
+      instagram: "Instagram",
+      email: "Email",
+      phone: "+34 647 119 040"
+    },
+
+    // Footer
+    footer: {
+      copyright: "© 2024 AALTI SYSTEMS. Wszelkie prawa zastrzeżone.",
+      contactus: "Skontaktuj się z nami"
+    },
+
+    // Additional sections for full app translation
+    heroMain: {
+      label: "AALTI SYSTEMS",
+      headline: "Automatyzacja B2B z AI | Zwielokrotnij Sprzedaż 24/7",
+      description: "Automatyzujemy Twoje najbardziej żmudne procesy, aby Twój biznes działał z prędkością wielkich firm technologicznych. Przestań tracić czas na powtarzalne zadania.",
+      cta: "Bezpłatny Audyt AI",
+      ctaSecondary: "Zobacz Historie Sukcesu"
+    },
+
+    socialProof: {
+      label: "Technologia, której liderzy rynku już używają, aby skalować:"
+    },
+
+    aiEcosystem: {
+      label: "Ekosystem Sztucznej Inteligencji",
+      title: "Natywna Integracja z Liderami AI",
+      description: "AALTI SYSTEMS łączy się natywnie z najbardziej zaawansowanymi platformami AI na rynku. Natychmiastowy dostęp do najlepszych modeli językowych i automatycznego podejmowania decyzji."
+    },
+
+    features: {
+      compatible: "Łatwa Integracja",
+      compatibleDesc: "Połącz z dowolnym narzędziem",
+      availability: "Dostępność 24/7",
+      availabilityDesc: "Ciągła praca, bez wyjątków",
+      latency: "Natychmiastowe Odpowiedzi",
+      latencyDesc: "Decyzje w milisekundach",
+      security: "Twoje Bezpieczeństwo Gwarantowane",
+      securityDesc: "Szyfrowanie klasy enterprise + zgodność z przepisami"
+    },
+
+    capabilitiesSection: {
+      title: "Zaawansowane Możliwości",
+      items: [
+        "Analiza semantyczna w czasie rzeczywistym",
+        "Automatyczne generowanie treści",
+        "Podejmowanie decyzji w oparciu o kontekst",
+        "Ciągłe uczenie bez ponownego trenowania"
+      ]
+    },
+
+    useCasesSection: {
+      title: "Przypadki Użycia",
+      items: [
+        "Precyzyjna klasyfikacja leadów",
+        "Spersonalizowane odpowiedzi dla klientów",
+        "Predykcja prawdopodobieństwa finalizacji",
+        "Dynamiczna optymalizacja strategii"
+      ]
+    },
+
+    cube3d: {
+      title: "Jak Działa AALTI",
+      faces: [
+        {
+          title: "Lead Generation",
+          description: "AI automatycznie pozyskuje leady 24/7/365 z wielu kanałów jednocześnie"
+        },
+        {
+          title: "Qualification",
+          description: "Klasyfikuje potencjalnych klientów w kilka sekund według Twoich kryteriów z inteligencją predykcyjną"
+        },
+        {
+          title: "Closing",
+          description: "Automatycznie umawia rozmowy i prowadzi follow-up, aby szybciej finalizować transakcje"
+        },
+        {
+          title: "ROI",
+          description: "Wykładniczo zwielokrotnia przychody bez zatrudniania kolejnych handlowców"
+        }
+      ]
+    },
+
+    bentoGridSection: {
+      title: "Trzy Filary Transformacji",
+      card1: {
+        title: "+40% Skuteczności Sprzedaży",
+        description: "Wdrażamy inteligentne systemy, które pozyskują, filtrują i pielęgnują Twoich potencjalnych klientów na autopilocie."
+      },
+      card2: {
+        title: "Oszczędź 20h Tygodniowo",
+        description: "Delegujemy powtarzalną pracę do algorytmów, aby Twój zespół skupił się na tym, co naprawdę ważne: rozwoju."
+      },
+      card3: {
+        title: "Wsparcie 24/7 Bez Przerwy",
+        description: "Twoi klienci zawsze obsłużeni natychmiast, włącznie z niedzielami i świętami."
+      }
+    },
+
+    automation: {
+      label: "Automatyzacja ze Sztuczną Inteligencją",
+      title: "Pozyskuj, Kwalifikuj i Finalizuj Automatycznie",
+      description: "Twój system sprzedaży działa 24/7 bez przerwy. Nasze algorytmy AI pozyskują leady, kwalifikują je z precyzją i nieustannie się doskonalą z każdą interakcją — bez ręcznej interwencji.",
+      stat1: "500+",
+      stat1Label: "Leadów/dzień pozyskanych",
+      stat2: "95%",
+      stat2Label: "Dokładność predykcji",
+      stat3: "0",
+      stat3Label: "Ręczna interwencja",
+      stat4: "Real-time",
+      stat4Label: "Natychmiastowe decyzje"
+    },
+
+    dashboard: {
+      alt: "Pulpit Automatyzacji AALTI SYSTEMS",
+      mlEngine: "ML Engine",
+      mlEngineDesc: "Uczenie maszynowe",
+      nlp: "NLP",
+      nlpDesc: "Przetwarzanie języka",
+      realtime: "Real-time",
+      realtimeDesc: "Natychmiastowe decyzje",
+      leadsDaily: "Leady dziennie",
+      accuracyRate: "Wskaźnik dokładności",
+      noIntervention: "Bez ręcznej interwencji",
+      predictionAccuracy: "Dokładność Predykcji",
+      adaptationSpeed: "Szybkość Adaptacji",
+      modelOptimization: "Optymalizacja Modeli"
+    },
+
+    faq: {
+      title: "Często Zadawane Pytania",
+      subtitle: "Uzyskaj odpowiedzi, jak AALTI może przekształcić Twój biznes",
+      items: [
+        {
+          question: "Ile kosztuje audyt?",
+          answer: "Audyt jest całkowicie BEZPŁATNY. Analizujemy Twój biznes bez zobowiązań. Płacisz tylko, jeśli zdecydujesz się wdrożyć system."
+        },
+        {
+          question: "Ile trwa wdrożenie?",
+          answer: "Średnio 2-4 tygodnie. Integrujemy się z Twoim istniejącym CRM bez zakłóceń. Niektórzy klienci zgłaszają wyniki już w pierwszym tygodniu."
+        },
+        {
+          question: "Czy działa z każdym CRM?",
+          answer: "Tak. AALTI natywnie integruje się z Salesforce, HubSpot, Pipedrive i ponad 50 platformami przez API. Jeśli używasz konkretnego CRM, podłączymy go."
+        },
+        {
+          question: "Jakie gwarancje oferujecie?",
+          answer: "+30% więcej pozyskanych leadów w 90 dni lub zwracamy koszt wdrożenia. Twoje wyniki są gwarantowane."
         }
       ]
     }

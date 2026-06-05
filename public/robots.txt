@@ -5,7 +5,3 @@ Disallow: /node_modules
 Disallow: /*.env*
 
 Sitemap: https://aaltisystems.com/sitemap.xml
-Crawl-delay: 1
-
-User-agent: Googlebot
-Priority: 10

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
-import { Menu, X, Phone, Mail, Instagram, ArrowRight, Play, TrendingUp, Clock, Cpu, Moon, Sun, Rocket, Zap, Settings2, ShieldCheck, Lightbulb, Target, Check, Globe, MessageCircle } from 'lucide-react';
+import { Menu, X, Phone, Mail, Instagram, ArrowRight, Play, TrendingUp, Clock, Cpu, Moon, Sun, Rocket, Zap, Settings2, ShieldCheck, Lightbulb, Target, Check, MessageCircle } from 'lucide-react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import * as THREE from 'three';
@@ -11,6 +11,7 @@ import LegalNotice from './pages/LegalNotice';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import NotFound from './pages/NotFound';
 import CookieBanner from './components/CookieBanner';
+import LanguageDropdown from './components/LanguageDropdown';
 import { useLanguage } from './LanguageContext';
 import { translations } from './i18n';
 
@@ -627,7 +628,7 @@ const Marquee = ({ children, speed = 50 }) => {
 };
 
 // ─── Navigation Header ─────────────────────────────────────────
-const Header = ({ isDarkMode, setIsDarkMode, language, toggleLanguage, onContactClick }) => {
+const Header = ({ isDarkMode, setIsDarkMode, language, setLanguage, onContactClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -676,14 +677,7 @@ const Header = ({ isDarkMode, setIsDarkMode, language, toggleLanguage, onContact
             <Mail className="w-4 h-4" />
             Contactar
           </button>
-          <button
-            onClick={toggleLanguage}
-            className="p-2 hover:bg-white/10 rounded-full transition-colors duration-200"
-            title={language === 'es' ? 'English' : 'Español'}
-            aria-label={language === 'es' ? 'Cambiar a inglés' : 'Cambiar a español'}
-          >
-            <Globe className="w-5 h-5 text-slate-400 hover:text-white transition-colors duration-200" />
-          </button>
+          <LanguageDropdown language={language} setLanguage={setLanguage} />
         </div>
 
         <button
@@ -716,6 +710,9 @@ const Header = ({ isDarkMode, setIsDarkMode, language, toggleLanguage, onContact
           >
             <Mail className="w-4 h-4" /> Contactar
           </button>
+          <div className="flex justify-center pt-1">
+            <LanguageDropdown language={language} setLanguage={setLanguage} />
+          </div>
         </motion.div>
       )}
     </motion.header>
@@ -724,7 +721,7 @@ const Header = ({ isDarkMode, setIsDarkMode, language, toggleLanguage, onContact
 
 // ─── Main App Component ────────────────────────────────────────
 export default function App() {
-  const { language, toggleLanguage } = useLanguage();
+  const { language, setLanguage } = useLanguage();
   const t = translations[language];
   const [showContactForm, setShowContactForm] = useState(false);
   const [showContactPage, setShowContactPage] = useState(false);
@@ -752,7 +749,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-950 text-white">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
+        /* Fonts are loaded once in index.html (with preconnect); no @import here. */
         .font-space-grotesk { font-family: 'Space Grotesk', sans-serif; }
         .font-dm-sans { font-family: 'DM Sans', sans-serif; }
         .text-gradient { background: linear-gradient(135deg, #6366f1, #a855f7, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -761,9 +758,16 @@ export default function App() {
       <RetroGrid angle={65} />
       <Particles quantity={100} color="#6366f1" />
 
-      <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} language={language} toggleLanguage={toggleLanguage} onContactClick={() => setShowContactForm(true)} />
+      <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} language={language} setLanguage={setLanguage} onContactClick={() => setShowContactForm(true)} />
 
-      <ImprovedContactForm isOpen={showContactForm} onClose={() => setShowContactForm(false)} />
+      <ImprovedContactForm
+        isOpen={showContactForm}
+        onClose={() => setShowContactForm(false)}
+        onShowPrivacy={() => {
+          setShowContactForm(false);
+          setShowPrivacyPolicy(true);
+        }}
+      />
 
       {/* ─── HERO SECTION ─── */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-32 pb-20 overflow-hidden">
@@ -1436,7 +1440,7 @@ export default function App() {
         </div>
       </footer>
 
-      <CookieBanner />
+      <CookieBanner onShowPrivacy={() => setShowPrivacyPolicy(true)} />
     </div>
   );
 }

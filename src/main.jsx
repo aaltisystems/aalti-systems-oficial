@@ -1,8 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import 'lenis/dist/lenis.css';
 import './index.css';
 import App from './App.jsx';
 import { LanguageProvider } from './LanguageContext.jsx';
+import { initSmoothScroll } from './lib/smoothScroll';
 
 const root = document.getElementById('root');
 
@@ -13,6 +15,9 @@ createRoot(root).render(
     </LanguageProvider>
   </StrictMode>,
 );
+
+// Smooth scrolling (Lenis from npm, replaces the old CDN scripts).
+initSmoothScroll();
 
 // Mark root as visible (removes FOUC guard from index.html)
 requestAnimationFrame(() => {

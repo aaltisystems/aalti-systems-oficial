@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>AALTI SYSTEMS - Automatización B2B con IA | Ventas 24/7</title>
+    <title>AALTI SYSTEMS - Automatización B2B con IA | +40% Ventas 24/7</title>
     <meta name="description" content="Automatización de ventas B2B con IA. Captura, califica y cierra clientes 24/7 sin intervención. Auditoría gratis. +450h/mes ahorradas.">
     <meta name="keywords" content="automatización B2B, IA ventas, lead generation, sales automation, CRM, B2B automation">
     <meta name="author" content="AALTI SYSTEMS">
@@ -16,6 +16,8 @@
     <link rel="canonical" href="https://aaltisystems.com/">
     <link rel="alternate" hreflang="es" href="https://aaltisystems.com/">
     <link rel="alternate" hreflang="en" href="https://aaltisystems.com/en/">
+    <link rel="alternate" hreflang="pl" href="https://aaltisystems.com/pl/">
+    <link rel="alternate" hreflang="x-default" href="https://aaltisystems.com/">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
     <!-- ── Open Graph Meta Tags (Facebook, LinkedIn, Pinterest) ── -->
@@ -31,13 +33,14 @@
     <meta property="og:image:alt" content="AALTI SYSTEMS - Automatización B2B con Inteligencia Artificial">
     <meta property="og:locale" content="es_ES">
     <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="pl_PL">
 
     <!-- ── Twitter Card Meta Tags ── -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@aaltisystems">
     <meta name="twitter:creator" content="@aaltisystems">
     <meta name="twitter:url" content="https://aaltisystems.com/">
-    <meta name="twitter:title" content="AALTI SYSTEMS - Automatización B2B con IA | +40% Ventas">
+    <meta name="twitter:title" content="AALTI SYSTEMS - Automatización B2B con IA | +40% Ventas 24/7">
     <meta name="twitter:description" content="Tu competencia ya usa IA. Automatiza ventas 24/7 sin intervención manual. Auditoría gratuita ahora.">
     <meta name="twitter:image" content="https://aaltisystems.com/og-image.jpg">
     <meta name="twitter:image:alt" content="AALTI SYSTEMS - Soluciones de Automatización con IA">
@@ -45,7 +48,7 @@
     <!-- ── LinkedIn Specific Tags ── -->
     <meta property="article:author" content="AALTI SYSTEMS">
     <meta property="article:published_time" content="2024-01-01">
-    <meta property="article:modified_time" content="2026-04-29">
+    <meta property="article:modified_time" content="2026-06-05">
     <meta property="article:section" content="Technology">
     <meta property="article:tag" content="Automatización">
     <meta property="article:tag" content="IA">
@@ -68,7 +71,6 @@
     <style>
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       html {
-        scroll-behavior: auto !important; /* Lenis owns this */
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
@@ -77,45 +79,6 @@
       #root { opacity: 0; transition: opacity 0.3s ease; }
       #root.ready { opacity: 1; }
     </style>
-
-    <!-- ── GSAP ecosystem (synchronous, before React) ── -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
-
-    <!-- ── Lenis Smooth Scroll ── -->
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.45/bundled/lenis.min.js"></script>
-
-    <!-- ── Init Lenis + GSAP sync before React hydrates ── -->
-    <script>
-      (function initMotion() {
-        if (typeof Lenis === 'undefined' || typeof gsap === 'undefined') return;
-
-        gsap.registerPlugin(ScrollTrigger);
-
-        const lenis = new Lenis({
-          duration: 1.4,
-          easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-          orientation: 'vertical',
-          gestureOrientation: 'vertical',
-          smoothWheel: true,
-          wheelMultiplier: 0.9,
-          touchMultiplier: 1.8,
-          infinite: false,
-        });
-
-        // Sync Lenis → GSAP ScrollTrigger
-        lenis.on('scroll', ScrollTrigger.update);
-
-        gsap.ticker.add(time => lenis.raf(time * 1000));
-        gsap.ticker.lagSmoothing(0);
-
-        // Expose globally
-        window.__lenis = lenis;
-        window.gsap = gsap;
-        window.ScrollTrigger = ScrollTrigger;
-      })();
-    </script>
 
     <!-- ── Schema Markup (JSON-LD) ── -->
     <script type="application/ld+json">
