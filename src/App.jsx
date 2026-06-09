@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import * as THREE from 'three';
 import PerspectiveMarquee from './components/PerspectiveMarquee';
 import ImprovedContactForm from './components/ImprovedContactForm';
+import InteractiveSimulators from './components/InteractiveSimulators';
 import ClientLogos from './components/ClientLogos';
 import ContactPage from './pages/ContactPage';
 import LegalNotice from './pages/LegalNotice';
@@ -850,7 +851,9 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            <button onClick={() => setShowContactPage(true)}>
+            <button onClick={() => {
+              document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' });
+            }}>
               <ShinyButton variant="primary">
                 {t.heroMain.cta}
                 <ArrowRight className="w-4 h-4" />
@@ -1120,6 +1123,8 @@ export default function App() {
         </motion.div>
       </section>
 
+      <InteractiveSimulators />
+
       {/* ─── SCROLL ANIMATION SECTION ─── */}
       <section className="relative overflow-hidden">
         <Suspense fallback={<LoadingFallback />}>
@@ -1309,6 +1314,74 @@ export default function App() {
           </motion.div>
           </ContainerScroll>
         </Suspense>
+      </section>
+
+      {/* ─── PROCESS STEP BY STEP ─── */}
+      <section id="process" className="relative py-24 bg-gradient-to-b from-slate-950 via-indigo-950/10 to-slate-950">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <motion.p
+              className="text-cyan-400 text-sm md:text-base font-space-grotesk font-bold uppercase tracking-widest mb-3"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              {t.process.title}
+            </motion.p>
+            <motion.h2
+              className="text-gradient text-4xl md:text-5xl font-space-grotesk font-bold"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              {t.process.subtitle}
+            </motion.h2>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8 relative">
+            {/* Decorative connection line for desktop */}
+            <div className="hidden md:block absolute top-1/2 left-4 right-4 h-0.5 bg-gradient-to-r from-indigo-500/20 via-purple-500/40 to-cyan-500/20 -translate-y-12 -z-10" />
+
+            {[1, 2, 3, 4].map((stepNum) => {
+              const stepKey = `step${stepNum}`;
+              const step = t.process[stepKey];
+              const colors = [
+                'from-indigo-500/20 to-indigo-950/10 border-indigo-500/30 text-indigo-400',
+                'from-purple-500/20 to-purple-950/10 border-purple-500/30 text-purple-400',
+                'from-cyan-500/20 to-cyan-950/10 border-cyan-500/30 text-cyan-400',
+                'from-pink-500/20 to-pink-950/10 border-pink-500/30 text-pink-400'
+              ];
+              const glowColors = [
+                'group-hover:shadow-indigo-500/30',
+                'group-hover:shadow-purple-500/30',
+                'group-hover:shadow-cyan-500/30',
+                'group-hover:shadow-pink-500/30'
+              ];
+
+              return (
+                <motion.div
+                  key={stepNum}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: stepNum * 0.15 }}
+                  whileHover={{ y: -10 }}
+                  className={`group relative p-8 rounded-2xl border bg-gradient-to-b ${colors[stepNum - 1]} hover:border-indigo-500/50 transition-all duration-300 shadow-xl ${glowColors[stepNum - 1]}`}
+                >
+                  <div className="absolute -top-6 left-6 w-12 h-12 rounded-xl bg-slate-900 border border-slate-700/50 flex items-center justify-center font-space-grotesk font-bold text-lg text-white shadow-lg">
+                    {stepNum}
+                  </div>
+                  <div className="pt-2">
+                    <h3 className="font-space-grotesk text-xl font-bold text-white mb-4">{step.title}</h3>
+                    <p className="text-slate-300 font-dm-sans text-sm leading-relaxed">{step.description}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
       </section>
 
       {/* ─── TESTIMONIALS - STAGGER CAROUSEL ─── */}
