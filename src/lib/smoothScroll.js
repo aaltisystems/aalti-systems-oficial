@@ -1,8 +1,6 @@
 import Lenis from 'lenis';
 
 // Initialises Lenis smooth scrolling, driven by the native rAF loop.
-// Previously GSAP's ticker was used for this, but GSAP is no longer a
-// dependency (it was loaded from a CDN and never used by the app).
 // Returns the Lenis instance, or null when smooth scroll is skipped.
 export function initSmoothScroll() {
   if (typeof window === 'undefined') return null;
@@ -13,15 +11,21 @@ export function initSmoothScroll() {
   }
 
   const lenis = new Lenis({
-    duration: 1.4,
+    duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     gestureOrientation: 'vertical',
     smoothWheel: true,
-    wheelMultiplier: 0.9,
-    touchMultiplier: 1.8,
+    wheelMultiplier: 0.8,
+    touchMultiplier: 1.5,
     infinite: false,
+    autoResize: true,
+    // Prevent Lenis from intercepting anchor scrolls or scroll-to commands
+    prevent: (node) => node.hasAttribute('data-lenis-prevent'),
   });
+
+  // Prevent auto-scroll: ensure scroll position starts at top on load
+  lenis.scrollTo(0, { immediate: true });
 
   function raf(time) {
     lenis.raf(time);

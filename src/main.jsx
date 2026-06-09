@@ -8,6 +8,14 @@ import { initSmoothScroll } from './lib/smoothScroll';
 
 const root = document.getElementById('root');
 
+// Ensure scroll starts at top before rendering
+if (typeof window !== 'undefined') {
+  window.scrollTo(0, 0);
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+}
+
 createRoot(root).render(
   <StrictMode>
     <LanguageProvider>

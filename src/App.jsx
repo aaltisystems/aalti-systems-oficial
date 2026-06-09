@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
-import { Menu, X, Phone, Mail, Instagram, ArrowRight, Play, TrendingUp, Clock, Cpu, Moon, Sun, Rocket, Zap, Settings2, ShieldCheck, Lightbulb, Target, Check, MessageCircle } from 'lucide-react';
+import { Menu, X, Mail, Instagram, ArrowRight, Play, TrendingUp, Clock, Cpu, Rocket, Zap, Settings2, ShieldCheck, Lightbulb, Target, Check, MessageCircle } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import * as THREE from 'three';
 import PerspectiveMarquee from './components/PerspectiveMarquee';
@@ -733,9 +733,13 @@ export default function App() {
   const [showNotFound, setShowNotFound] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
 
+  // Dynamic SEO: update lang, title, and meta description on language change
   useEffect(() => {
     document.documentElement.lang = language;
-  }, [language]);
+    document.title = t.seo.title;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', t.seo.description);
+  }, [language, t]);
 
   if (showContactPage) {
     return <ContactPage onBack={() => setShowContactPage(false)} />;

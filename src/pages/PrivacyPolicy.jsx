@@ -127,7 +127,7 @@ export default function PrivacyPolicy({ onBack }) {
           title: "9. Contacto con Autoridad Supervisora",
           body: (
             <p className="text-slate-300 leading-relaxed">
-              Si consideras que tus derechos de privacidad han sido vulnerados, puedes presentar una reclamación ante la Autoridad de Control competente (en España: Agencia Española de Protección de Datos - AEPD).
+              Si consideras que tus derechos de privacidad han sido vulnerados, puedes presentar una reclamación ante la Autoridad de Control competente: en España, la Agencia Española de Protección de Datos (AEPD); en Polonia, el Urząd Ochrony Danych Osobowych (UODO).
             </p>
           )
         },
@@ -263,7 +263,7 @@ export default function PrivacyPolicy({ onBack }) {
           title: "9. Contact with Supervisory Authority",
           body: (
             <p className="text-slate-300 leading-relaxed">
-              If you believe your privacy rights have been violated, you can file a complaint with the competent Supervisory Authority (in Spain: Agencia Española de Protección de Datos - AEPD).
+              If you believe your privacy rights have been violated, you can file a complaint with the competent Supervisory Authority: in Spain, the Agencia Española de Protección de Datos (AEPD); in Poland, the Urząd Ochrony Danych Osobowych (UODO).
             </p>
           )
         },
@@ -399,7 +399,7 @@ export default function PrivacyPolicy({ onBack }) {
           title: "9. Kontakt z Organem Nadzorczym",
           body: (
             <p className="text-slate-300 leading-relaxed">
-              Jeśli uważasz, że Twoje prawa do prywatności zostały naruszone, możesz złożyć skargę do właściwego organu nadzorczego (w Hiszpanii: Agencia Española de Protección de Datos - AEPD).
+              Jeśli uważasz, że Twoje prawa do prywatności zostały naruszone, możesz złożyć skargę do właściwego organu nadzorczego: w Polsce — Urząd Ochrony Danych Osobowych (UODO); w Hiszpanii — Agencia Española de Protección de Datos (AEPD).
             </p>
           )
         },

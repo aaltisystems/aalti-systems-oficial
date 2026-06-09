@@ -1,5 +1,10 @@
 export const translations = {
   es: {
+    // SEO
+    seo: {
+      title: "AALTI SYSTEMS - Chatbots & Voice AI | Automatización de Atención y Ventas",
+      description: "Implementamos chatbots inteligentes (WhatsApp, Instagram, Web) y agentes de voz por IA de latencia ultra baja (1.8s) para automatizar tu atención al cliente y ventas 24/7."
+    },
     // Header & Navigation
     header: {
       soluciones: "Soluciones de IA",
@@ -234,7 +239,7 @@ export const translations = {
     },
 
     footer: {
-      copyright: "© 2024 AALTI SYSTEMS. Todos los derechos reservados.",
+      copyright: "© 2025 AALTI SYSTEMS. Todos los derechos reservados.",
       contactus: "Contacta con nosotros"
     },
 
@@ -325,6 +330,11 @@ export const translations = {
   },
 
   en: {
+    // SEO
+    seo: {
+      title: "AALTI SYSTEMS - Chatbots & Voice AI | Customer Support & Sales Automation",
+      description: "We deploy intelligent chatbots (WhatsApp, Instagram, Web) and ultra-low latency (1.8s) Voice AI agents to automate your customer support and sales 24/7."
+    },
     // Header & Navigation
     header: {
       soluciones: "AI Solutions",
@@ -559,7 +569,7 @@ export const translations = {
     },
 
     footer: {
-      copyright: "© 2024 AALTI SYSTEMS. All rights reserved.",
+      copyright: "© 2025 AALTI SYSTEMS. All rights reserved.",
       contactus: "Contact us"
     },
 
@@ -650,6 +660,11 @@ export const translations = {
   },
 
   pl: {
+    // SEO
+    seo: {
+      title: "AALTI SYSTEMS - Chatboty & Voice AI | Automatyzacja Obsługi Klienta i Sprzedaży",
+      description: "Wdrażamy inteligentne chatboty (WhatsApp, Instagram, Web) i agentów głosowych AI z opóźnieniem 1.8s, aby zautomatyzować obsługę klienta i sprzedaż 24/7."
+    },
     // Header & Navigation
     header: {
       soluciones: "Rozwiązania AI",
@@ -884,7 +899,7 @@ export const translations = {
     },
 
     footer: {
-      copyright: "© 2024 AALTI SYSTEMS. Wszelkie prawa zastrzeżone.",
+      copyright: "© 2025 AALTI SYSTEMS. Wszelkie prawa zastrzeżone.",
       contactus: "Skontaktuj się z nami"
     },
 

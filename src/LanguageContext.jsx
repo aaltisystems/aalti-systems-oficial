@@ -1,13 +1,13 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
 // ─── Available languages ───────────────────────────────────────
-export const LANGUAGES = ['es', 'en', 'pl'];
-export const DEFAULT_LANGUAGE = 'es';
+export const LANGUAGES = ['pl', 'en', 'es'];
+export const DEFAULT_LANGUAGE = 'pl';
 
-// Maps a language to its URL prefix. Spanish (default) lives at the
-// root; the others live under /en/ and /pl/ — matching the hreflang
+// Maps a language to its URL prefix. Polish (default) lives at the
+// root; the others live under /en/ and /es/ — matching the hreflang
 // tags in index.html. These paths are served by the SPA rewrite in
-// vercel.json, so a hard refresh on /en/ or /pl/ still works.
+// vercel.json, so a hard refresh on /en/ or /es/ still works.
 const pathForLang = (lang) => (lang === DEFAULT_LANGUAGE ? '/' : `/${lang}/`);
 
 // Reads the language from the current URL path (first segment), or
