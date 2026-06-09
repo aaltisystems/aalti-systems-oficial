@@ -50,7 +50,33 @@ export const translations = {
     // Testimonials
     testimonials: {
       title: "Cómo 50+ Empresas Multiplicaron Ingresos",
-      subtitle: "Desde startups hasta empresas de Fortune 500, han transformado sus operaciones con AALTI SYSTEMS"
+      subtitle: "Desde startups hasta empresas de Fortune 500, han transformado sus operaciones con AALTI SYSTEMS",
+      items: [
+        {
+          testimonial: "AALTI integró sin problemas con nuestro CRM existente. El ROI llegó en 6 semanas. Imprescindible para cualquier empresa con ventas.",
+          name: "Sofia Rodríguez",
+          role: "CTO",
+          company: "CloudBusiness Inc"
+        },
+        {
+          testimonial: "Escalamos ventas de €500k a €1.8M anuales sin contratar. AALTI hizo la diferencia entre fracasar y triunfar.",
+          name: "Roberto Martín",
+          role: "CEO",
+          company: "AgriTech Solutions"
+        },
+        {
+          testimonial: "Cierre de deals 35% más rápido. La IA agenda automáticamente llamadas en horarios óptimos. Es magia empresarial pura.",
+          name: "Laura Martínez",
+          role: "Sales Director",
+          company: "RealEstate Digital"
+        },
+        {
+          testimonial: "Nuestros clientes reciben respuestas en 30 segundos, 24/7. El NPS subió 40 puntos en 6 meses. AALTI cambió nuestra marca.",
+          name: "Andrés Ruiz",
+          role: "Customer Experience",
+          company: "OmniChannel Retail"
+        }
+      ]
     },
 
     // Scroll Section 2
@@ -148,7 +174,9 @@ export const translations = {
       privacyBefore: "Acepto la ",
       privacyLink: "política de privacidad",
       privacyAfter: " y entiendo que mis datos se utilizarán solo para contacto comercial.",
-      privacyRequired: "Debes aceptar la política de privacidad"
+      privacyRequired: "Debes aceptar la política de privacidad",
+      whatsappText: "Solicité consulta gratuita desde aaltisystems.com",
+      emailSubject: "Solicitud de Consulta Gratuita"
     },
 
     // Cookie Banner
@@ -366,7 +394,33 @@ export const translations = {
     // Testimonials
     testimonials: {
       title: "How 50+ Companies Multiplied Revenue",
-      subtitle: "From startups to Fortune 500 companies, they've transformed their operations with AALTI SYSTEMS"
+      subtitle: "From startups to Fortune 500 companies, they've transformed their operations with AALTI SYSTEMS",
+      items: [
+        {
+          testimonial: "AALTI integrated seamlessly with our existing CRM. The ROI arrived in 6 weeks. A must-have for any business with sales.",
+          name: "Sofia Rodríguez",
+          role: "CTO",
+          company: "CloudBusiness Inc"
+        },
+        {
+          testimonial: "We scaled sales from €500k to €1.8M annually without hiring. AALTI made the difference between failing and succeeding.",
+          name: "Roberto Martín",
+          role: "CEO",
+          company: "AgriTech Solutions"
+        },
+        {
+          testimonial: "Closing deals 35% faster. AI automatically schedules calls at optimal times. It's pure business magic.",
+          name: "Laura Martínez",
+          role: "Sales Director",
+          company: "RealEstate Digital"
+        },
+        {
+          testimonial: "Our customers receive responses in 30 seconds, 24/7. NPS went up 40 points in 6 months. AALTI transformed our brand.",
+          name: "Andrés Ruiz",
+          role: "Customer Experience",
+          company: "OmniChannel Retail"
+        }
+      ]
     },
 
     // Scroll Section 2
@@ -464,7 +518,9 @@ export const translations = {
       privacyBefore: "I accept the ",
       privacyLink: "privacy policy",
       privacyAfter: " and understand my data will be used only for commercial contact.",
-      privacyRequired: "You must accept the privacy policy"
+      privacyRequired: "You must accept the privacy policy",
+      whatsappText: "I requested a free consultation from aaltisystems.com",
+      emailSubject: "Free Consultation Request"
     },
 
     // Cookie Banner
@@ -682,7 +738,33 @@ export const translations = {
     // Testimonials
     testimonials: {
       title: "Jak ponad 50 Firm Zwielokrotniło Przychody",
-      subtitle: "Od startupów po firmy z listy Fortune 500 — przekształciły swoje operacje dzięki AALTI SYSTEMS"
+      subtitle: "Od startupów po firmy z listy Fortune 500 — przekształciły swoje operacje dzięki AALTI SYSTEMS",
+      items: [
+        {
+          testimonial: "AALTI bezproblemowo zintegrował się z naszym obecnym systemem CRM. Zwrot z inwestycji nastąpił w 6 tygodni. Pozycja obowiązkowa dla każdej firmy prowadzącej sprzedaż.",
+          name: "Sofia Rodríguez",
+          role: "CTO",
+          company: "CloudBusiness Inc"
+        },
+        {
+          testimonial: "Zwiększyliśmy sprzedaż z 500 tys. do 1,8 mln euro rocznie bez zatrudniania nowych pracowników. AALTI zrobił różnicę między porażką a sukcesem.",
+          name: "Roberto Martín",
+          role: "CEO",
+          company: "AgriTech Solutions"
+        },
+        {
+          testimonial: "Zamykanie transakcji o 35% szybciej. AI automatycznie umawia rozmowy w optymalnych godzinach. To czysta biznesowa magia.",
+          name: "Laura Martínez",
+          role: "Sales Director",
+          company: "RealEstate Digital"
+        },
+        {
+          testimonial: "Nasi klienci otrzymują odpowiedzi w 30 sekund, 24/7. NPS wzrósł o 40 punktów w 6 miesięcy. AALTI odmieniło naszą markę.",
+          name: "Andrés Ruiz",
+          role: "Customer Experience",
+          company: "OmniChannel Retail"
+        }
+      ]
     },
 
     // Scroll Section 2
@@ -780,7 +862,9 @@ export const translations = {
       privacyBefore: "Akceptuję ",
       privacyLink: "politykę prywatności",
       privacyAfter: " i rozumiem, że moje dane będą wykorzystane wyłącznie do kontaktu handlowego.",
-      privacyRequired: "Musisz zaakceptować politykę prywatności"
+      privacyRequired: "Musisz zaakceptować politykę prywatności",
+      whatsappText: "Poprosiłem o bezpłatną konsultację na stronie aaltisystems.com",
+      emailSubject: "Prośba o bezpłatną konsultację"
     },
 
     // Cookie Banner

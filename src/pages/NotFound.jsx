@@ -28,10 +28,21 @@ export default function NotFound({ onNavigateHome }) {
       button1: "Free Audit",
       button2: "Contact Now",
       helpText: "Need help? Contact us at"
+    },
+    pl: {
+      code: "404",
+      preTitle: "Oczekiwanie na automatyzację",
+      title: "Ta ścieżka nie została jeszcze zautomatyzowana",
+      description: "Wygląda na to, że strona, której szukasz, nie została jeszcze zintegrowana z naszym systemem automatyzacji.",
+      subtitle: "Ale nie martw się, możemy zautomatyzować Twój proces sprzedaży.",
+      cta: "Wróć do Strony Głównej",
+      button1: "Bezpłatny Audyt",
+      button2: "Skontaktuj się Teraz",
+      helpText: "Potrzebujesz pomocy? Skontaktuj się z nami pod adresem"
     }
   };
 
-  const t = content[language];
+  const t = content[language] || content.es;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-950 text-white flex flex-col items-center justify-center px-4 py-20 relative overflow-hidden">
@@ -210,7 +221,7 @@ export default function NotFound({ onNavigateHome }) {
 
       {/* Decorative animated line */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent relative z-10"
+        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}

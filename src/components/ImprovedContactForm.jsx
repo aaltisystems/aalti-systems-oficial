@@ -238,7 +238,7 @@ export const ImprovedContactForm = ({ isOpen, onClose, onShowPrivacy }) => {
 
             <div className="space-y-3">
               <motion.a
-                href="https://wa.me/34647119040?text=Solicité%20consulta%20gratuita%20desde%20aalti.com"
+                href={`https://wa.me/34647119040?text=${encodeURIComponent(t.contactForm.whatsappText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -256,7 +256,7 @@ export const ImprovedContactForm = ({ isOpen, onClose, onShowPrivacy }) => {
                 📸 Instagram
               </motion.a>
               <motion.a
-                href="mailto:aaltistudio@gmail.com?subject=Solicitud%20de%20Consulta%20Gratuita"
+                href={`mailto:aaltistudio@gmail.com?subject=${encodeURIComponent(t.contactForm.emailSubject)}`}
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 font-dm-sans text-sm hover:bg-indigo-500/30 transition"
               >

@@ -5,19 +5,7 @@
   "env": {
     "VITE_MODE": "production"
   },
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.aaltisystems.com"
-        }
-      ],
-      "destination": "https://aaltisystems.com/:path*",
-      "permanent": true
-    }
-  ],
+
   "rewrites": [
     {
       "source": "/((?!assets/|.*\\..*).*)",

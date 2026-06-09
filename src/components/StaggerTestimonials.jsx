@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
+import { translations } from '../i18n';
 
 const getInitials = (name) => {
+  if (!name) return '';
   const parts = name.split(' ');
   if (parts.length >= 2) {
     return (parts[0][0] + parts[1][0]).toUpperCase();
@@ -18,37 +21,6 @@ const getAvatarGradient = (index) => {
   ];
   return gradients[index % gradients.length];
 };
-
-const testimonials = [
-  {
-    tempId: 0,
-    testimonial: "AALTI integró sin problemas con nuestro CRM existente. El ROI llegó en 6 semanas. Imprescindible para cualquier empresa con ventas.",
-    name: "Sofia Rodríguez",
-    role: "CTO",
-    company: "CloudBusiness Inc"
-  },
-  {
-    tempId: 1,
-    testimonial: "Escalamos ventas de €500k a €1.8M anuales sin contratar. AALTI hizo la diferencia entre fracasar y triunfar.",
-    name: "Roberto Martín",
-    role: "CEO",
-    company: "AgriTech Solutions"
-  },
-  {
-    tempId: 2,
-    testimonial: "Cierre de deals 35% más rápido. La IA agenda automáticamente llamadas en horarios óptimos. Es magia empresarial pura.",
-    name: "Laura Martínez",
-    role: "Sales Director",
-    company: "RealEstate Digital"
-  },
-  {
-    tempId: 3,
-    testimonial: "Nuestros clientes reciben respuestas en 30 segundos, 24/7. El NPS subió 40 puntos en 6 meses. AALTI cambió nuestra marca.",
-    name: "Andrés Ruiz",
-    role: "Customer Experience",
-    company: "OmniChannel Retail"
-  }
-];
 
 const TestimonialCard = ({ position, testimonial, handleMove, cardSize, index }) => {
   const isCenter = position === 0;
@@ -101,25 +73,27 @@ const TestimonialCard = ({ position, testimonial, handleMove, cardSize, index })
 };
 
 export const StaggerTestimonials = () => {
+  const { language } = useLanguage();
+  const t = translations[language].testimonials;
   const [cardSize, setCardSize] = useState(365);
-  const [testimonialsList, setTestimonialsList] = useState(testimonials);
+  
+  // Storing only the order of indices [0, 1, 2, 3]
+  const [order, setOrder] = useState(() => Array.from({ length: 4 }, (_, i) => i));
 
   const handleMove = (steps) => {
-    const newList = [...testimonialsList];
+    const newOrder = [...order];
     if (steps > 0) {
       for (let i = steps; i > 0; i--) {
-        const item = newList.shift();
-        if (!item) return;
-        newList.push({ ...item, tempId: Math.random() });
+        const item = newOrder.shift();
+        if (item !== undefined) newOrder.push(item);
       }
     } else {
       for (let i = steps; i < 0; i++) {
-        const item = newList.pop();
-        if (!item) return;
-        newList.unshift({ ...item, tempId: Math.random() });
+        const item = newOrder.pop();
+        if (item !== undefined) newOrder.unshift(item);
       }
     }
-    setTestimonialsList(newList);
+    setOrder(newOrder);
   };
 
   useEffect(() => {
@@ -138,18 +112,27 @@ export const StaggerTestimonials = () => {
       className="relative w-full overflow-hidden bg-slate-900/50 border-t border-b border-indigo-500/20"
       style={{ height: 600 }}
     >
-      {testimonialsList.map((testimonial, index) => {
-        const position = testimonialsList.length % 2
-          ? index - (testimonialsList.length + 1) / 2
-          : index - testimonialsList.length / 2;
+      {order.map((originalIndex, currentIndex) => {
+        const position = order.length % 2
+          ? currentIndex - Math.floor(order.length / 2)
+          : currentIndex - order.length / 2;
+        
+        const item = t.items[originalIndex];
+        const testimonial = {
+          testimonial: item.testimonial,
+          name: item.name,
+          role: item.role,
+          company: item.company
+        };
+
         return (
           <TestimonialCard
-            key={testimonial.tempId}
+            key={originalIndex}
             testimonial={testimonial}
             handleMove={handleMove}
             position={position}
             cardSize={cardSize}
-            index={index}
+            index={originalIndex}
           />
         );
       })}
@@ -157,16 +140,16 @@ export const StaggerTestimonials = () => {
         <button
           onClick={() => handleMove(-1)}
           className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-600 border-2 border-indigo-500 hover:bg-indigo-700 text-white transition-all hover:shadow-lg hover:shadow-indigo-500/50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-slate-900"
-          aria-label="Anterior testimonio"
-          title="Anterior"
+          aria-label={language === 'es' ? 'Anterior testimonio' : (language === 'pl' ? 'Poprzednia opinia' : 'Previous testimonial')}
+          title={language === 'es' ? 'Anterior' : (language === 'pl' ? 'Poprzedni' : 'Previous')}
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button
           onClick={() => handleMove(1)}
           className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-600 border-2 border-indigo-500 hover:bg-indigo-700 text-white transition-all hover:shadow-lg hover:shadow-indigo-500/50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-slate-900"
-          aria-label="Siguiente testimonio"
-          title="Siguiente"
+          aria-label={language === 'es' ? 'Siguiente testimonio' : (language === 'pl' ? 'Następna opinia' : 'Next testimonial')}
+          title={language === 'es' ? 'Siguiente' : (language === 'pl' ? 'Następny' : 'Next')}
         >
           <ChevronRight className="w-5 h-5" />
         </button>
