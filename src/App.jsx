@@ -508,6 +508,8 @@ const MorphingShapes = () => {
 // ─── MAGIC UI: Hero Video Dialog (Enhanced) ────────────────────
 const HeroVideoDialog = ({ thumbnailSrc }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { language } = useLanguage();
+  const t = translations[language];
 
   return (
     <div className="relative w-full max-w-4xl mx-auto">
@@ -519,7 +521,7 @@ const HeroVideoDialog = ({ thumbnailSrc }) => {
         <div className="relative bg-gradient-to-br from-slate-900 to-slate-950 aspect-video flex items-center justify-center overflow-hidden">
           <img
             src={thumbnailSrc}
-            alt="Video de demostración: sistema automático de captura y cierre de leads"
+            alt={t.demoVideo.altThumbnail}
             className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
           />
           <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-all" />
@@ -550,7 +552,7 @@ const HeroVideoDialog = ({ thumbnailSrc }) => {
               <div className="relative rounded-lg overflow-hidden bg-black aspect-video flex items-center justify-center">
                 <img
                   src={thumbnailSrc}
-                  alt="Demostración en vivo del pipeline de automatización: captura, calificación y cierre de clientes"
+                  alt={t.demoVideo.altLive}
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
                 />
@@ -563,7 +565,7 @@ const HeroVideoDialog = ({ thumbnailSrc }) => {
                 </motion.div>
               </div>
               <p className="text-slate-400 text-sm text-center mt-4 font-dm-sans">
-                Video de demostración - Integración de solución AALTI SYSTEMS
+                {t.demoVideo.caption}
               </p>
             </div>
 
@@ -632,6 +634,7 @@ const Marquee = ({ children, speed = 50 }) => {
 const Header = ({ isDarkMode, setIsDarkMode, language, setLanguage, onContactClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const t = translations[language];
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -676,7 +679,7 @@ const Header = ({ isDarkMode, setIsDarkMode, language, setLanguage, onContactCli
             title="Email"
           >
             <Mail className="w-4 h-4" />
-            Contactar
+            {t.contactVerb}
           </button>
           <LanguageDropdown language={language} setLanguage={setLanguage} />
         </div>
@@ -709,7 +712,7 @@ const Header = ({ isDarkMode, setIsDarkMode, language, setLanguage, onContactCli
             }}
             className="w-full py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-lg text-white text-sm font-dm-sans font-semibold flex items-center justify-center gap-2 transition-all duration-200"
           >
-            <Mail className="w-4 h-4" /> Contactar
+            <Mail className="w-4 h-4" /> {t.contactVerb}
           </button>
           <div className="flex justify-center pt-1">
             <LanguageDropdown language={language} setLanguage={setLanguage} />
@@ -730,6 +733,10 @@ export default function App() {
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
   const [showNotFound, setShowNotFound] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   if (showContactPage) {
     return <ContactPage onBack={() => setShowContactPage(false)} />;
@@ -1491,7 +1498,7 @@ export default function App() {
         <div className="flex justify-center gap-3 flex-wrap mb-8">
           <button onClick={() => setShowContactForm(true)} className="px-6 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-full text-white text-sm font-semibold flex items-center gap-2 transition-all duration-200">
             <Mail className="w-4 h-4" />
-            Contactar
+            {t.contactVerb}
           </button>
           <a href="https://wa.me/34647119040" target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-white text-sm font-semibold flex items-center gap-2 transition-all duration-200 border border-white/20">
             <MessageCircle className="w-4 h-4" />
@@ -1504,11 +1511,11 @@ export default function App() {
         </div>
         <div className="flex justify-center gap-6 flex-wrap text-xs text-slate-500">
           <button onClick={() => setShowLegalNotice(true)} className="hover:text-slate-300 transition-colors">
-            Aviso Legal
+            {t.legalNotice}
           </button>
           <span>•</span>
           <button onClick={() => setShowPrivacyPolicy(true)} className="hover:text-slate-300 transition-colors">
-            Privacidad
+            {t.privacyPolicy}
           </button>
         </div>
       </footer>

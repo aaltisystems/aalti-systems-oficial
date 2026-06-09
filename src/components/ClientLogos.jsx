@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { translations } from '../i18n';
 
 const ClientLogos = ({ language }) => {
+  const t = translations[language];
+
   const logos = [
     {
       name: 'OpenAI',
@@ -57,9 +60,7 @@ const ClientLogos = ({ language }) => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
-          {language === 'es'
-            ? 'Tecnología que impulsa a las mejores empresas del mundo'
-            : 'Technology powering the world\'s best companies'}
+          {t.socialProof.label}
         </motion.h2>
 
         <div className="overflow-hidden">

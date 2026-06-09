@@ -252,13 +252,13 @@ export default function InteractiveSimulators() {
                       </div>
                       <div>
                         <h4 className="font-space-grotesk font-bold text-sm text-white leading-tight">AALTI Bot</h4>
-                        <span className="text-[10px] text-green-400 font-dm-sans">{language === 'es' ? 'En línea' : (language === 'pl' ? 'Aktywny' : 'Online')}</span>
+                        <span className="text-[10px] text-green-400 font-dm-sans">{t.online}</span>
                       </div>
                     </div>
                     <button
                       onClick={restartChat}
                       className="p-2 bg-slate-800 hover:bg-slate-700 rounded-full transition text-slate-400 hover:text-white"
-                      title={language === 'es' ? 'Reiniciar' : (language === 'pl' ? 'Restartuj' : 'Restart')}
+                      title={t.restart}
                     >
                       <RotateCcw className="w-4 h-4" />
                     </button>
@@ -318,7 +318,7 @@ export default function InteractiveSimulators() {
                   {/* Simulated Keyboard Footer */}
                   <div className="p-4 bg-slate-900 border-t border-slate-800 flex gap-2 items-center">
                     <div className="flex-1 bg-slate-800 border border-slate-700/50 rounded-full px-4 py-2 text-xs text-slate-500 font-dm-sans">
-                      {language === 'es' ? 'Mensaje...' : (language === 'pl' ? 'Wiadomość...' : 'Message...')}
+                      {t.messagePlaceholder}
                     </div>
                     <button className="p-2.5 bg-indigo-600 rounded-full text-white cursor-default">
                       <Send className="w-4 h-4" />
@@ -386,7 +386,7 @@ export default function InteractiveSimulators() {
                           className="flex gap-2 text-xs"
                         >
                           <span className={`font-bold font-space-grotesk shrink-0 ${msg.sender === 'bot' ? 'text-purple-400' : 'text-indigo-400'}`}>
-                            {msg.sender === 'bot' ? 'Alex (AI):' : 'Cliente:'}
+                            {msg.sender === 'bot' ? t.botLabel : t.clientLabel}
                           </span>
                           <span className="text-slate-300 font-dm-sans leading-relaxed">{msg.text}</span>
                         </motion.div>
@@ -400,7 +400,7 @@ export default function InteractiveSimulators() {
                     <button
                       onClick={restartVoice}
                       className="p-3 bg-slate-800 hover:bg-slate-700 rounded-full transition text-slate-400 hover:text-white"
-                      title={language === 'es' ? 'Reiniciar' : (language === 'pl' ? 'Restartuj' : 'Restart')}
+                      title={t.restart}
                     >
                       <RotateCcw className="w-5 h-5" />
                     </button>
@@ -444,56 +444,20 @@ export default function InteractiveSimulators() {
               </h3>
 
               <p className="text-slate-300 font-dm-sans leading-relaxed text-sm">
-                {activeTab === 'chat'
-                  ? (language === 'es'
-                      ? 'Nuestros chatbots se integran en tus canales de mensajería favoritos para responder dudas comunes al instante, cualificar prospectos y agendar directamente llamadas con leads de alta intención de compra sin requerir personal humano.'
-                      : (language === 'pl'
-                          ? 'Nasze chatboty integrują się z Twoimi ulubionymi komunikatorami, aby natychmiast odpowiadać na typowe pytania, kwalifikować leady i bezpośrednio umawiać spotkania z klientami o wysokiej intencji zakupowej — bez konieczności angażowania personelu.'
-                          : 'Our chatbots integrate with your favorite messaging channels to instantly answer FAQs, qualify prospects, and book sales meetings with high-intent leads automatically without human staff.'))
-                  : (language === 'es'
-                      ? 'Los agentes de voz por Inteligencia Artificial de AALTI simulan una llamada telefónica fluida con un tono realista y latencia ultra baja (1.8 segundos). Atienden llamadas simultáneas, envían información al WhatsApp de los clientes y agendan reuniones sin esperas.'
-                      : (language === 'pl'
-                          ? 'Agenci głosowi AI od AALTI symulują płynne rozmowy telefoniczne z realistycznym tonem i niezwykle niskim opóźnieniem (1.8 sekundy). Obsługują wiele połączeń jednocześnie, wysyłają informacje na WhatsApp klienta i umawiają spotkania bez czekania.'
-                          : 'AALTI\'s Voice AI agents simulate natural phone calls with a realistic tone and ultra-low latency (1.8 seconds). They handle simultaneous calls, trigger follow-up info directly to customer WhatsApps, and schedule meetings without delays.')
-                    )}
+                {activeTab === 'chat' ? t.chatDesc : t.voiceDesc}
               </p>
 
               <div className="pt-4 border-t border-slate-800">
                 <h4 className="font-space-grotesk font-bold text-indigo-400 text-xs uppercase tracking-wider mb-2">
-                  {language === 'es' ? 'Beneficios Clave' : (language === 'pl' ? 'Kluczowe Korzyści' : 'Key Benefits')}
+                  {t.keyBenefits}
                 </h4>
                 <ul className="space-y-2.5">
-                  {activeTab === 'chat' ? (
-                    <>
-                      <li className="flex gap-2 text-xs text-slate-400 font-dm-sans items-center">
-                        <ChevronRight className="w-4 h-4 text-indigo-500 shrink-0" />
-                        {language === 'es' ? 'Disponible 24/7/365 en WhatsApp e Instagram' : (language === 'pl' ? 'Dostępny 24/7/365 na WhatsAppie i Instagramie' : 'Available 24/7/365 on WhatsApp & Instagram')}
-                      </li>
-                      <li className="flex gap-2 text-xs text-slate-400 font-dm-sans items-center">
-                        <ChevronRight className="w-4 h-4 text-indigo-500 shrink-0" />
-                        {language === 'es' ? 'Guardado directo en CRM (HubSpot, Salesforce, etc.)' : (language === 'pl' ? 'Bezpośredni zapis w CRM (HubSpot, Salesforce itp.)' : 'Direct sync to CRM (HubSpot, Salesforce, etc.)')}
-                      </li>
-                      <li className="flex gap-2 text-xs text-slate-400 font-dm-sans items-center">
-                        <ChevronRight className="w-4 h-4 text-indigo-500 shrink-0" />
-                        {language === 'es' ? 'Calificación inteligente y filtrado automático de spam' : (language === 'pl' ? 'Inteligentna kwalifikacja i automatyczne filtrowanie spamu' : 'Smart qualification & automatic spam filtering')}
-                      </li>
-                    </>
-                  ) : (
-                    <>
-                      <li className="flex gap-2 text-xs text-slate-400 font-dm-sans items-center">
-                        <ChevronRight className="w-4 h-4 text-purple-500 shrink-0" />
-                        {language === 'es' ? 'Latencia de voz de 1.8s (sensación humana fluida)' : (language === 'pl' ? 'Opóźnienie głosu 1.8s (naturalne wrażenie ludzkiej rozmowy)' : 'Voice latency of 1.8s (natural human-like conversation)')}
-                      </li>
-                      <li className="flex gap-2 text-xs text-slate-400 font-dm-sans items-center">
-                        <ChevronRight className="w-4 h-4 text-purple-500 shrink-0" />
-                        {language === 'es' ? 'Cero llamadas en cola (100+ llamadas a la vez)' : (language === 'pl' ? 'Brak kolejkowania (ponad 100 połączeń jednocześnie)' : 'Zero queued calls (100+ concurrent calls)')}
-                      </li>
-                      <li className="flex gap-2 text-xs text-slate-400 font-dm-sans items-center">
-                        <ChevronRight className="w-4 h-4 text-purple-500 shrink-0" />
-                        {language === 'es' ? 'Envío automático de mensajes y enlaces post-llamada' : (language === 'pl' ? 'Automatyczne wysyłanie wiadomości i linków po rozmowie' : 'Automatic sending of messages & links post-call')}
-                      </li>
-                    </>
-                  )}
+                  {(activeTab === 'chat' ? t.chatBenefits : t.voiceBenefits).map((benefit, idx) => (
+                    <li key={idx} className="flex gap-2 text-xs text-slate-400 font-dm-sans items-center">
+                      <ChevronRight className={`w-4 h-4 shrink-0 ${activeTab === 'chat' ? 'text-indigo-500' : 'text-purple-500'}`} />
+                      {benefit}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </motion.div>

@@ -45,20 +45,38 @@ export const translations = {
       statusWriting: "Escribiendo...",
       statusCalling: "En llamada con IA de Voz...",
       audioWaves: "Onda de audio del Agente de Voz",
+      online: "En línea",
+      restart: "Reiniciar",
+      messagePlaceholder: "Mensaje...",
+      botLabel: "Alex (IA):",
+      clientLabel: "Cliente:",
+      chatDesc: "Nuestros chatbots se integran en tus canales de mensajería favoritos para responder dudas comunes al instante, cualificar prospectos y agendar directamente llamadas con leads de alta intención de compra sin requerir personal humano.",
+      voiceDesc: "Los agentes de voz por Inteligencia Artificial de AALTI simulan una llamada telefónica fluida con un tono realista y latencia ultra baja (1.8 segundos). Atienden llamadas simultáneas, envían información al WhatsApp de los clientes y agendan reuniones sin esperas.",
+      keyBenefits: "Beneficios Clave",
+      chatBenefits: [
+        "Disponible 24/7/365 en WhatsApp e Instagram",
+        "Guardado directo en CRM (HubSpot, Salesforce, etc.)",
+        "Calificación inteligente y filtrado automático de spam"
+      ],
+      voiceBenefits: [
+        "Latencia de voz de 1.8s (sensación humana fluida)",
+        "Cero llamadas en cola (100+ llamadas a la vez)",
+        "Envío automático de mensajes y enlaces post-llamada"
+      ],
       whatsapp: {
         msg1: "Hola, me interesa agendar una auditoría de automatización de ventas para mi empresa.",
         msg2: "¡Hola! Con gusto te ayudo. Para darte la mejor atención, necesito hacerte 2 preguntas rápidas. ¿Cuál es el canal principal de ventas de tu negocio hoy?",
         msg3: "Principalmente anuncios en Instagram y llamadas telefónicas directas.",
         msg4: "Entendido. ¿Y aproximadamente cuántos clientes potenciales (leads) reciben al día?",
         msg5: "Entre 30 y 50 diarios. Nos cuesta mucho llamarles rápido.",
-        msg6: "¡Comprendo perfectamente! Con ese volumen, responder en menos de 5 minutos puede subir tus ventas un 30%. Puedo agendar una llamada estratégica gratuita con nuestro equipo ahora mismo. ¿Te va bien mañana a las 10:00 AM?",
+        msg6: "¡Comprendo perfectamente! Con ese volumen, responder en menos de 5 minutos puede incrementar tu tasa de conversión en un 30%. Puedo agendar una llamada estratégica gratuita con nuestro equipo ahora mismo. ¿Te va bien mañana a las 10:00 AM?",
         msg7: "Sí, a esa hora me va perfecto. Gracias.",
         msg8: "¡Listo! Ya quedó agendado. Recibirás una invitación de calendario en tu correo en unos instantes. ¡Hablamos pronto! 🚀"
       },
       voice: [
         { sender: "bot", text: "Gracias por llamar a AALTI SYSTEMS. Soy Alex, tu asistente virtual de IA. ¿Cómo puedo ayudarte a optimizar tus operaciones hoy?" },
         { sender: "user", text: "Hola, tengo una tienda online y perdemos muchas ventas porque no podemos responder preguntas de clientes los fines de semana." },
-        { sender: "bot", text: "Entiendo perfectamente. Los fines de semana la intención de compra es altísima, pero el 74% de los compradores buscará otra opción si cae en buzón de voz. Nuestra IA de voz puede atender todas esas llamadas al instante, resolver dudas frecuentes de productos y consultar el estado de envíos. ¿Te gustaría que te envíe un enlace con una demostración a tu WhatsApp?" },
+        { sender: "bot", text: "Entiendo perfectamente. Los fines de semana la intención de compra es altísima, pero el 74% de los compradores buscará otra opción si no obtiene respuesta inmediata. Nuestra IA de voz puede atender todas esas llamadas al instante, resolver dudas frecuentes de productos y consultar el estado de envíos. ¿Te gustaría que te envíe un enlace con una demostración a tu WhatsApp?" },
         { sender: "user", text: "Sí, por favor, sería de gran ayuda. Mi número es este mismo desde el que llamo." },
         { sender: "bot", text: "¡Perfecto! Ya he programado el envío del mensaje de WhatsApp con la demo. Además, puedo agendar una llamada de 10 minutos con nuestro especialista técnico para ver tu caso este jueves a las 4:00 PM. ¿Te viene bien?" },
         { sender: "user", text: "Sí, el jueves a las 4:00 PM me parece perfecto." },
@@ -295,6 +313,14 @@ export const translations = {
       title: "Deja de Perder Clientes por Responder Tarde",
       description: "Cada minuto de espera reduce la probabilidad de cierre un 80%. Activa tus agentes de voz y chatbots con IA hoy mismo.",
       cta: "Quiero una Auditoría Gratuita"
+    },
+    contactVerb: "Contactar",
+    legalNotice: "Aviso Legal",
+    privacyPolicy: "Política de Privacidad",
+    demoVideo: {
+      altThumbnail: "Video de demostración: sistema automático de captura y cierre de leads",
+      altLive: "Demostración en vivo del pipeline de automatización: captura, calificación y cierre de clientes",
+      caption: "Video de demostración - Integración de solución AALTI SYSTEMS"
     }
   },
 
@@ -344,6 +370,24 @@ export const translations = {
       statusWriting: "Typing...",
       statusCalling: "In call with Voice AI...",
       audioWaves: "Voice Agent audio wave",
+      online: "Online",
+      restart: "Restart",
+      messagePlaceholder: "Message...",
+      botLabel: "Alex (AI):",
+      clientLabel: "Customer:",
+      chatDesc: "Our chatbots integrate with your favorite messaging channels to instantly answer FAQs, qualify prospects, and book sales meetings with high-intent leads automatically without human staff.",
+      voiceDesc: "AALTI's Voice AI agents simulate natural phone calls with a realistic tone and ultra-low latency (1.8 seconds). They handle simultaneous calls, trigger follow-up info directly to customer WhatsApps, and schedule meetings without delays.",
+      keyBenefits: "Key Benefits",
+      chatBenefits: [
+        "Available 24/7/365 on WhatsApp & Instagram",
+        "Direct sync to CRM (HubSpot, Salesforce, etc.)",
+        "Smart qualification & automatic spam filtering"
+      ],
+      voiceBenefits: [
+        "Voice latency of 1.8s (natural human-like conversation)",
+        "Zero queued calls (100+ concurrent calls)",
+        "Automatic sending of messages & links post-call"
+      ],
       whatsapp: {
         msg1: "Hi, I need info about scheduling a sales automation audit for my company.",
         msg2: "Hi! I'd be happy to help. To serve you best, I just need to ask 2 quick questions. What is your company's main sales channel right now?",
@@ -594,6 +638,14 @@ export const translations = {
       title: "Stop Losing Customers by Answering Late",
       description: "Every minute of waiting reduces closing probability by 80%. Activate your voice agents and chatbots today.",
       cta: "Get a Free Audit"
+    },
+    contactVerb: "Contact Us",
+    legalNotice: "Legal Notice",
+    privacyPolicy: "Privacy Policy",
+    demoVideo: {
+      altThumbnail: "Demo video: automated lead capture and close system",
+      altLive: "Live demo of the automation pipeline: capturing, qualifying, and closing customers",
+      caption: "Demo video - AALTI SYSTEMS solution integration"
     }
   },
 
@@ -643,22 +695,40 @@ export const translations = {
       statusWriting: "Pisze...",
       statusCalling: "W trakcie rozmowy z Voice AI...",
       audioWaves: "Wykres głosu Agenta Głosowego",
+      online: "Aktywny",
+      restart: "Restartuj",
+      messagePlaceholder: "Wiadomość...",
+      botLabel: "Alex (AI):",
+      clientLabel: "Klient:",
+      chatDesc: "Nasze chatboty integrują się z Twoimi ulubionymi komunikatorami, aby natychmiast odpowiadać na typowe pytania, kwalifikować leady i bezpośrednio umawiać spotkania z klientami o wysokiej intencji zakupowej — bez konieczności angażowania personelu.",
+      voiceDesc: "Agenci głosowi AI od AALTI symulują płynne rozmowy telefoniczne z realistycznym tonem i niezwykle niskim opóźnieniem (1.8 sekundy). Obsługują wiele połączeń jednocześnie, wysyłają informacje na WhatsApp klienta i umawiają spotkania bez czekania.",
+      keyBenefits: "Kluczowe Korzyści",
+      chatBenefits: [
+        "Dostępny 24/7/365 na WhatsAppie i Instagramie",
+        "Bezpośredni zapis w CRM (HubSpot, Salesforce itp.)",
+        "Inteligentna kwalifikacja i automatyczne filtrowanie spamu"
+      ],
+      voiceBenefits: [
+        "Opóźnienie głosu 1.8s (naturalne wrażenie ludzkiej rozmowy)",
+        "Brak kolejkowania (ponad 100 połączeń jednocześnie)",
+        "Automatyczne wysyłanie wiadomości i linków po rozmowie"
+      ],
       whatsapp: {
         msg1: "Dzień dobry, interesuje mnie zamówienie audytu automatyzacji sprzedaży dla mojej firmy.",
         msg2: "Dzień dobry! Z chęcią pomogę. Aby zapewnić najlepszą obsługę, muszę zadać 2 szybkie pytania. Jaki jest obecnie główny kanał sprzedaży w Twojej firmie?",
         msg3: "Głównie reklamy na Instagramie i bezpośrednie telefony od klientów.",
         msg4: "Rozumiem. A ile w przybliżeniu potencjalnych klientów (leadów) otrzymujecie dziennie?",
         msg5: "Między 30 a 50 dziennie. Mamy problem z szybkim oddzwanianiem do nich.",
-        msg6: "Doskonale to rozumiem! Przy takim wolumenie odpowiedź w mniej niż 5 minut może zwiększyć sprzedaż o 30%. Mogę od razu zapisać Cię na bezpłatną rozmowę strategiczną z naszym zespołem. Czy jutro o 10:00 rano Ci odpowiada?",
+        msg6: "Doskonale to rozumiem! Przy takim wolumenie odpowiedź w mniej niż 5 minut może zwiększyć konwersję o 30%. Mogę od razu zapisać Cię na bezpłatną rozmowę strategiczną z naszym zespołem. Czy jutro o 10:00 rano Ci odpowiada?",
         msg7: "Tak, ta godzina pasuje mi idealnie. Dziękuję.",
         msg8: "Gotowe! Zostałeś zapisany. Za chwilę otrzymasz zaproszenie w kalendarzu na swój e-mail. Do usłyszenia wkrótce! 🚀"
       },
       voice: [
         { sender: "bot", text: "Dziękujemy za kontakt z AALTI SYSTEMS. Nazywam się Alex i jestem wirtualnym asystentem AI. W czym mogę dziś pomóc zoptymalizować operacje Twojej firmy?" },
         { sender: "user", text: "Dzień dobry, prowadzę sklep internetowy i tracimy zbyt wielu klientów, ponieważ nie jesteśmy w stanie odpowiadać na pytania telefoniczne w weekendy." },
-        { sender: "bot", text: "W pełni rozumiem. W weekendy chęć zakupu u klientów jest najwyższa, ale 74% kupujących poszuka innej oferty, jeśli usłyszy pocztę głosową. Nasz Voice AI może natychmiast odbierać wszystkie te połączenia, odpowiadać na najczęstsze pytania o produkty i sprawdzać statusy zamówień. Czy chcesz, abym wysłał link do wersji demonstracyjnej na Twój WhatsApp?" },
+        { sender: "bot", text: "W pełni rozumiem. W weekendy intencja zakupowa u klientów jest najwyższa, ale 74% kupujących poszuka innej oferty, jeśli usłyszy pocztę głosową. Nasz Voice AI może natychmiast odbierać wszystkie te połączenia, odpowiadać na najczęstsze pytania o produkty i sprawdzać statusy zamówień. Czy chcesz, abym wysłał link do wersji demonstracyjnej na Tvój WhatsApp?" },
         { sender: "user", text: "Tak, proszę, to byłaby ogromna pomoc. Mój numer to ten, z którego dzwonię." },
-        { sender: "bot", text: "Świetnie! Właśnie zleciłem wysłanie wiadomości na WhatsApp z linkiem do demo. Dodatkowo mogę zapisać Cię na krótką, 10-minutową rozmowę z naszym specjalistą technicznym w celu omówienia Twojej sytuacji w najbliższy czwartek o 16:00. Czy ten termin Ci odpowiada?" },
+        { sender: "bot", text: "Świetnie! Właśnie wysłałem wiadomość na WhatsApp z linkiem do demo. Dodatkowo mogę zapisać Cię na krótką, 10-minutową rozmowę z naszym specjalistą technicznym w celu omówienia Twojej sytuacji w najbliższy czwartek o 16:00. Czy ten termin Ci odpowiada?" },
         { sender: "user", text: "Tak, czwartek o 16:00 pasuje idealnie." },
         { sender: "bot", text: "Doskonale, termin zarezerwowany! Szczegóły otrzymasz mailowo. Pomożemy Ci przechwycić każdego potencjalnego klienta, nawet w weekend. Życzę miłego dnia!" }
       ]
@@ -670,7 +740,7 @@ export const translations = {
       subtitle: "Jak pomagamy Twojej firmie przejść od tracenia leadów do odpowiadania w 1.8 sekundy.",
       step1: {
         title: "1. Audyt i Strategia",
-        description: "Analizujemy Twoje obecne kanały kontaktu (rozmowy telefoniczne, WhatsApp, strona www) i lokalizujemy miejsca, gdzie przez powolną odpowiedź ucieka najwięcej klientów."
+        description: "Analizujemy Twoje obecne kanały kontaktu (rozmowy telefoniczne, WhatsApp, strona www) i identyfikujemy miejsca, gdzie przez powolną odpowiedź ucieka najwięcej klientów."
       },
       step2: {
         title: "2. Trening AI",
@@ -893,6 +963,14 @@ export const translations = {
       title: "Przestań Tracić Klientów przez Zbyt Późne Odpowiedzi",
       description: "Każda minuta oczekiwania obniża szansę na zamknięcie sprzedaży o 80%. Uruchom asystentów głosowych i chatboty AI już dziś.",
       cta: "Zamów Bezpłatny Audyt"
+    },
+    contactVerb: "Skontaktuj się",
+    legalNotice: "Nota Prawna",
+    privacyPolicy: "Polityka Prywatności",
+    demoVideo: {
+      altThumbnail: "Wideo demonstracyjne: automatyczny system przechwytywania i zamykania leadów",
+      altLive: "Prezentacja na żywo procesu automatyzacji: pozyskiwanie, kwalifikacja i zamykanie klientów",
+      caption: "Wideo demonstracyjne - Integracja rozwiązania AALTI SYSTEMS"
     }
   }
 };
