@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { Menu, X, Phone, Mail, Instagram, ArrowRight, Play, TrendingUp, Clock, Cpu, Moon, Sun, Rocket, Zap, Settings2, ShieldCheck, Lightbulb, Target, Check, MessageCircle } from 'lucide-react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { useForm } from 'react-hook-form';
+import { motion, useInView } from 'framer-motion';
 import * as THREE from 'three';
 import PerspectiveMarquee from './components/PerspectiveMarquee';
 import ImprovedContactForm from './components/ImprovedContactForm';
@@ -631,7 +630,7 @@ const Marquee = ({ children, speed = 50 }) => {
 };
 
 // ─── Navigation Header ─────────────────────────────────────────
-const Header = ({ isDarkMode, setIsDarkMode, language, setLanguage, onContactClick }) => {
+const Header = ({ language, setLanguage, onContactClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const t = translations[language];
@@ -766,7 +765,7 @@ export default function App() {
       <RetroGrid angle={65} />
       <Particles quantity={100} color="#6366f1" />
 
-      <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} language={language} setLanguage={setLanguage} onContactClick={() => setShowContactForm(true)} />
+      <Header language={language} setLanguage={setLanguage} onContactClick={() => setShowContactForm(true)} />
 
       <ImprovedContactForm
         isOpen={showContactForm}
