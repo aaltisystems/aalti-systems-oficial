@@ -14,7 +14,7 @@ export default function InteractiveSimulators() {
   const [chatMessages, setChatMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
   const [chatStep, setChatStep] = useState(0);
-  const chatEndRef = useRef(null);
+  const chatContainerRef = useRef(null);
 
   // Chat conversation script keys from i18n
   const chatScript = [
@@ -28,9 +28,14 @@ export default function InteractiveSimulators() {
     { sender: 'bot', textKey: 'msg8' }
   ];
 
-  // Auto scroll chat
+  // Auto scroll chat (within container, avoiding window scroll)
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTo({
+        top: chatContainerRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
   }, [chatMessages, isTyping]);
 
   // Handle Chat autoplay
@@ -65,6 +70,7 @@ export default function InteractiveSimulators() {
 
       return () => clearTimeout(timer);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chatStep, activeTab, language]);
 
   const restartChat = () => {
@@ -79,12 +85,17 @@ export default function InteractiveSimulators() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [activeVoiceIndex, setActiveVoiceIndex] = useState(-1);
   const [callDuration, setCallDuration] = useState(0);
-  const voiceEndRef = useRef(null);
+  const voiceContainerRef = useRef(null);
   const timerRef = useRef(null);
 
-  // Auto scroll voice transcript
+  // Auto scroll voice transcript (within container, avoiding window scroll)
   useEffect(() => {
-    voiceEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (voiceContainerRef.current) {
+      voiceContainerRef.current.scrollTo({
+        top: voiceContainerRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
   }, [voiceMessages]);
 
   // Handle Call Timer
@@ -132,6 +143,7 @@ export default function InteractiveSimulators() {
       }, 3000);
       return () => clearTimeout(timer);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPlaying, activeVoiceIndex, activeTab, language]);
 
   const toggleVoicePlay = () => {
@@ -265,7 +277,10 @@ export default function InteractiveSimulators() {
                   </div>
 
                   {/* Chat Body */}
-                  <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-[url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')] bg-opacity-5">
+                  <div
+                    ref={chatContainerRef}
+                    className="flex-1 overflow-y-auto p-4 space-y-4 bg-[url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')] bg-opacity-5"
+                  >
                     {chatMessages.map((msg, i) => (
                       <motion.div
                         key={i}
@@ -312,7 +327,6 @@ export default function InteractiveSimulators() {
                         </div>
                       </motion.div>
                     )}
-                    <div ref={chatEndRef} />
                   </div>
 
                   {/* Simulated Keyboard Footer */}
@@ -377,7 +391,7 @@ export default function InteractiveSimulators() {
 
                   {/* Transcript panel */}
                   <div className="h-40 bg-slate-900 border-t border-slate-800 p-4 overflow-y-auto space-y-3 flex flex-col justify-end">
-                    <div className="overflow-y-auto max-h-full space-y-3">
+                    <div ref={voiceContainerRef} className="overflow-y-auto max-h-full space-y-3">
                       {voiceMessages.map((msg, i) => (
                         <motion.div
                           key={i}
@@ -391,7 +405,6 @@ export default function InteractiveSimulators() {
                           <span className="text-slate-300 font-dm-sans leading-relaxed">{msg.text}</span>
                         </motion.div>
                       ))}
-                      <div ref={voiceEndRef} />
                     </div>
                   </div>
 
