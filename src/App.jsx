@@ -856,19 +856,20 @@ export default function App() {
           </motion.p>
 
           <motion.div
-            className="flex justify-center gap-4 mb-16 flex-col sm:flex-row"
+            className="flex justify-center gap-4 mb-16 flex-col sm:flex-row items-center"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            <button onClick={() => {
-              document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' });
-            }}>
-              <ShinyButton variant="primary">
-                {t.heroMain.cta}
-                <ArrowRight className="w-4 h-4" />
-              </ShinyButton>
-            </button>
+            <ShinyButton
+              variant="primary"
+              onClick={() => {
+                document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              {t.heroMain.cta}
+              <ArrowRight className="w-4 h-4" />
+            </ShinyButton>
           </motion.div>
 
           {/* Tech accent line */}
@@ -1483,40 +1484,38 @@ export default function App() {
           <p className="text-slate-200 text-lg font-dm-sans mb-8">
             {t.ctaFinal.description}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => setShowContactForm(true)}>
-              <ShinyButton variant="primary">
-                {t.ctaFinal.cta}
-                <ArrowRight className="w-4 h-4" />
-              </ShinyButton>
-            </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <ShinyButton variant="primary" onClick={() => setShowContactForm(true)}>
+              {t.ctaFinal.cta}
+              <ArrowRight className="w-4 h-4" />
+            </ShinyButton>
           </div>
         </motion.div>
       </section>
 
 
       {/* ─── FOOTER ─── */}
-      <footer className="relative border-t border-indigo-500/20 py-12 text-center text-slate-400 text-sm font-dm-sans">
+      <footer className="relative border-t border-indigo-500/20 py-12 px-4 text-center text-slate-400 text-sm font-dm-sans">
         <p className="mb-8">{t.footer.copyright}</p>
-        <div className="flex justify-center gap-3 flex-wrap mb-8">
-          <button onClick={() => setShowContactForm(true)} className="px-6 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-full text-white text-sm font-semibold flex items-center gap-2 transition-all duration-200">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-3 max-w-xs sm:max-w-none mx-auto mb-8">
+          <button onClick={() => setShowContactForm(true)} className="w-full sm:w-auto px-6 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-full text-white text-sm font-semibold flex items-center justify-center gap-2 transition-all duration-200 shadow-md">
             <Mail className="w-4 h-4" />
             {t.contactVerb}
           </button>
-          <a href="https://wa.me/34647119040" target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-white text-sm font-semibold flex items-center gap-2 transition-all duration-200 border border-white/20">
+          <a href="https://wa.me/34647119040" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-6 py-2.5 bg-white/10 hover:bg-white/20 rounded-full text-white text-sm font-semibold flex items-center justify-center gap-2 transition-all duration-200 border border-white/20">
             <MessageCircle className="w-4 h-4" />
             WhatsApp
           </a>
-          <a href="https://instagram.com/aaltisystems" target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-white text-sm font-semibold flex items-center gap-2 transition-all duration-200 border border-white/20">
+          <a href="https://instagram.com/aaltisystems" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-6 py-2.5 bg-white/10 hover:bg-white/20 rounded-full text-white text-sm font-semibold flex items-center justify-center gap-2 transition-all duration-200 border border-white/20">
             <Instagram className="w-4 h-4" />
             Instagram
           </a>
         </div>
-        <div className="flex justify-center gap-6 flex-wrap text-xs text-slate-500">
+        <div className="flex justify-center items-center gap-4 text-xs text-slate-500 px-4">
           <button onClick={() => setShowLegalNotice(true)} className="hover:text-slate-300 transition-colors">
             {t.legalNotice}
           </button>
-          <span>•</span>
+          <span className="text-slate-700">|</span>
           <button onClick={() => setShowPrivacyPolicy(true)} className="hover:text-slate-300 transition-colors">
             {t.privacyPolicy}
           </button>
